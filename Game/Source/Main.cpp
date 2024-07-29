@@ -20,5 +20,7 @@ int main(int argc, char* argv[])
 
 	g_engine.Shutdown();
 
+	std::cout << "Test \n";
+
 	return 0;
 }
