@@ -1,26 +1,25 @@
 #include "Engine.h"
-
 #include <iostream>
+#include <cassert>
 
 int main(int argc, char* argv[])
 {
-	g_engine.Initialize();
+	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
+	engine->Initialize();
 
-	while (!g_engine.IsQuit())
+	while (!engine->IsQuit())
 	{
-		g_engine.Update();
+		engine->Update();
 
-		RENDERER.SetColor(0, 0, 0, 0);
-		RENDERER.BeginFrame();
+		engine->GetRenderer().SetColor(0, 0, 0, 0);
+		engine->GetRenderer().BeginFrame();
 
-		PS.Draw(RENDERER);
+		engine->GetPS().Draw(engine->GetRenderer());
 
-		RENDERER.EndFrame();
+		engine->GetRenderer().EndFrame();
 	}
 
-	g_engine.Shutdown();
-
-	std::cout << "Test \n";
+	engine->Shutdown();
 
 	return 0;
 }
