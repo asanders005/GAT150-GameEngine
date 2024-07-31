@@ -1,5 +1,4 @@
 #include "Actor.h"
-#include "Model.h"
 
 void Actor::Update(float dt)
 {

@@ -1,11 +1,13 @@
 #include "Engine.h"
 #include <iostream>
-#include <cassert>
 
 int main(int argc, char* argv[])
 {
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
+
+	File::SetFilePath("Assets");
+	std::cout << File::GetFilePath() << std::endl;
 
 	while (!engine->IsQuit())
 	{

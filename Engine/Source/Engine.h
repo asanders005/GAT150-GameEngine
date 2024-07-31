@@ -1,18 +1,26 @@
 #pragma once
-#include "Audio.h"
-#include "Input.h"
-#include "Renderer.h"
+// ** core **
+#include "Core/ETime.h"
+#include "Core/EAssert.h"
+#include "Core/EFile.h"
 
-#include "ETime.h"
+// ** systems **
+// renderer
+#include "Renderer/Renderer.h"
+#include "Renderer/Particle.h"
+#include "Renderer/ParticleSystem.h"
+#include "Renderer/Text.h"
+#include "Renderer/Model.h"
+//input
+#include "Input/Input.h"
+//audio
+#include "Audio/Audio.h"
 
-#include "Mathutils.h"
-#include "Random.h"
-#include "Vector2.h"
-
-#include "Model.h"
-#include "Particle.h"
-#include "ParticleSystem.h"
-#include "Transform.h"
+// ** math **
+#include "Math/Mathutils.h"
+#include "Math/Vector2.h"
+#include "Math/Random.h"
+#include "Math/Transform.h"
 
 #include <fmod.h>
 #include <SDL.h>
