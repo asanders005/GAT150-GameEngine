@@ -75,6 +75,9 @@
     <ClCompile Include="Source\Renderer\Model.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Renderer\Texture.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\EAssert.h">
@@ -135,6 +138,9 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Model.h">
+      <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Texture.h">
       <Filter>Source\Renderer</Filter>
     </ClInclude>
   </ItemGroup>

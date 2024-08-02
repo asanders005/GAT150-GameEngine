@@ -9,8 +9,9 @@
 #include "Renderer/Renderer.h"
 #include "Renderer/Particle.h"
 #include "Renderer/ParticleSystem.h"
-#include "Renderer/Text.h"
 #include "Renderer/Model.h"
+#include "Renderer/Texture.h"
+#include "Renderer/Text.h"
 //input
 #include "Input/Input.h"
 //audio

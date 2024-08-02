@@ -1,5 +1,6 @@
 #pragma once
 #include "../Renderer/Particle.h"
+#include "Game.h"
 #include <list>
 #include <vector>
 #include <string>
@@ -7,7 +8,6 @@
 
 class Renderer;
 class Actor;
-class Game;
 
 class Scene
 {
@@ -28,13 +28,13 @@ public:
 	template<typename T>
 	T* GetActor();
 
-	Game* GetGame() { return m_game; }
+	Game* GetGame() { return m_game.get(); }
 	
 private:
 	std::list<std::unique_ptr<Actor>> m_actors;
 	//std::vector<Particle> m_particles;
 
-	Game* m_game{ nullptr };
+	std::unique_ptr<Game> m_game;
 };
 
 template<typename T>

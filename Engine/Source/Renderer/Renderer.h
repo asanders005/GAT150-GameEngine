@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <string>
 #include <SDL_ttf.h>
+#include <SDL_image.h>
 
 class Renderer
 {
@@ -29,10 +30,13 @@ public:
 	void DrawRect(float x, float y, float w, float h);
 	void DrawRect(Vector2 v, float w, float h);
 
+	void DrawTexture(class Texture* texture, float x, float y, float angle = 0.0f);
+
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }
 
 	friend class Text;
+	friend class Texture;
 
 private:
 	SDL_Window* m_window{ nullptr };
