@@ -9,8 +9,11 @@ int main(int argc, char* argv[])
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
 
-	std::shared_ptr<Texture> texture = std::make_shared<Texture>();
-	texture->Load("TestImage.jpg", engine->GetRenderer());
+	res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("TestImage.jpg", engine->GetRenderer());
+	res_t<Font> font = ResourceManager::Instance().Get<Font>("pdark.ttf", 30);
+
+	std::unique_ptr<Text> text = std::make_unique<Text>(font, true);
+	text->Create(engine->GetRenderer(), "Hello World!", { 1, 1, 1 });
 
 	while (!engine->IsQuit())
 	{
@@ -19,12 +22,16 @@ int main(int argc, char* argv[])
 		engine->GetRenderer().SetColor(0, 0, 0, 0);
 		engine->GetRenderer().BeginFrame();
 
+		text->Draw(engine->GetRenderer(), 400, 300);
 		engine->GetRenderer().DrawTexture(texture.get(), 0, 0);
 
 		engine->GetPS().Draw(engine->GetRenderer());
 
 		engine->GetRenderer().EndFrame();
 	}
+
+	text->~Text();
+	font->~Font();
 
 	engine->Shutdown();
 

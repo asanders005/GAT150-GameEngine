@@ -11,6 +11,16 @@ Texture::~Texture()
 	if (m_texture) SDL_DestroyTexture(m_texture);
 }
 
+bool Texture::Create(std::string name, ...)
+{
+	va_list args;
+	va_start(args, name);
+	Renderer renderer = va_arg(args, Renderer);
+	va_end(args);
+
+    return Load(name, renderer);
+}
+
 bool Texture::Load(const std::string& filename, Renderer& renderer)
 {
 	// load image onto surface
@@ -44,3 +54,4 @@ Vector2 Texture::GetSize()
 
 	return { size.x, size.y };
 }
+

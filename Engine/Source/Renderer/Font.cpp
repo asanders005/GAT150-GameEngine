@@ -10,6 +10,16 @@ Font::~Font()
 	}
 }
 
+bool Font::Create(std::string name, ...)
+{
+	va_list args;
+	va_start(args, name);
+	int fontSize = va_arg(args, int);
+	va_end(args);
+
+	return Load(name, fontSize);
+}
+
 bool Font::Load(const std::string& name, int fontSize)
 {
 	m_ttfFont = TTF_OpenFont(name.c_str(), fontSize);

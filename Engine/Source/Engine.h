@@ -11,6 +11,7 @@
 #include "Renderer/ParticleSystem.h"
 #include "Renderer/Model.h"
 #include "Renderer/Texture.h"
+#include "Renderer/Font.h"
 #include "Renderer/Text.h"
 //input
 #include "Input/Input.h"
@@ -22,6 +23,10 @@
 #include "Math/Vector2.h"
 #include "Math/Random.h"
 #include "Math/Transform.h"
+
+// ** resources **
+#include "Resources/Resource.h"
+#include "Resources/ResourceManager.h"
 
 #include <fmod.h>
 #include <SDL.h>
