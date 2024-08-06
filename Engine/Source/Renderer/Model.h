@@ -1,8 +1,8 @@
 #pragma once
-#include "../Math/Vector2.h"
+#include "Math/Vector2.h"
 #include "Color.h"
 #include "Renderer.h"
-#include "../Math/Transform.h"
+#include "Math/Transform.h"
 #include <vector>
 
 class Model

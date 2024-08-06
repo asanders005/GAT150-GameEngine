@@ -1,7 +1,10 @@
 #pragma once
-#include "../Math/Transform.h"
-#include "../Renderer/Model.h"
+#include "Math/Transform.h"
+#include "Renderer/Model.h"
+#include "Components/Component.h"
 #include <string>
+#include <vector>
+#include <memory>
 
 class Scene;
 
@@ -15,6 +18,8 @@ public:
 	virtual void Update(float dt);
 	virtual void Draw(class Renderer& renderer);
 
+	void AddComponent(std::unique_ptr<Component> component);
+
 	void SetDamping(float damping) { m_damping = damping; }
 	void SetLifespan(float lifespan) { m_lifespan = lifespan; }
 
@@ -22,7 +27,7 @@ public:
 	void SetTag(const std::string& tag) { m_tag = tag; }
 	const std::string& GetTag() { return m_tag; }
 
-	virtual void OnCollision(Actor* actor) = 0;
+	virtual void OnCollision(Actor* actor) {};
 	float GetRadius() { return (m_model) ? m_model->GetRadius() * m_transform.scale : 0; }
 
 	virtual void SetHP(int hp) { m_hp = hp; }
@@ -46,4 +51,6 @@ protected:
 
 	Model* m_model{ nullptr };
 	Scene* m_scene{ nullptr };
+
+	std::vector<std::unique_ptr<Component>> m_components;
 };

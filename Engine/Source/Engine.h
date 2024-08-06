@@ -9,7 +9,6 @@
 #include "Renderer/Renderer.h"
 #include "Renderer/Particle.h"
 #include "Renderer/ParticleSystem.h"
-#include "Renderer/Model.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Font.h"
 #include "Renderer/Text.h"
@@ -17,6 +16,9 @@
 #include "Input/Input.h"
 //audio
 #include "Audio/Audio.h"
+
+// ** framework **
+#include "Framework/Actor.h"
 
 // ** math **
 #include "Math/Mathutils.h"
@@ -27,6 +29,9 @@
 // ** resources **
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
+
+// ** components **
+#include "Components/TextureComponent.h"
 
 #include <fmod.h>
 #include <SDL.h>

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Resources/Resource.h"
+#include "Resources/Resource.h"
 #include <string>
 
 class Font;

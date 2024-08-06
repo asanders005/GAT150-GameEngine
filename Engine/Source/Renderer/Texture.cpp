@@ -1,7 +1,7 @@
 #include "Texture.h"
 #include "Renderer.h"
-#include "../Core/EAssert.h"
-#include "../Math/Vector2.h"
+#include "Core/EAssert.h"
+#include "Math/Vector2.h"
 #include <SDL_image.h>
 #include <iostream>
 

@@ -8,31 +8,38 @@ int main(int argc, char* argv[])
 
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
-
-	res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("TestImage.jpg", engine->GetRenderer());
-	res_t<Font> font = ResourceManager::Instance().Get<Font>("pdark.ttf", 30);
-
-	std::unique_ptr<Text> text = std::make_unique<Text>(font, true);
-	text->Create(engine->GetRenderer(), "Hello World!", { 1, 1, 1 });
-
-	while (!engine->IsQuit())
 	{
-		engine->Update();
+		res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("TestImage.jpg", engine->GetRenderer());
+		res_t<Font> font = ResourceManager::Instance().Get<Font>("pdark.ttf", 30);
 
-		engine->GetRenderer().SetColor(0, 0, 0, 0);
-		engine->GetRenderer().BeginFrame();
+		std::unique_ptr<Text> text = std::make_unique<Text>(font, true);
+		text->Create(engine->GetRenderer(), "Hello World!", { 1, 1, 1 });
 
-		text->Draw(engine->GetRenderer(), 400, 300);
-		engine->GetRenderer().DrawTexture(texture.get(), 0, 0);
+		std::unique_ptr<Actor> actor = std::make_unique<Actor>(Transform{ { 400, 300 } });
+		std::unique_ptr<TextureComponent> tc = std::make_unique<TextureComponent>();
+		tc->texture = texture;
+		actor->AddComponent(std::move(tc));
 
-		engine->GetPS().Draw(engine->GetRenderer());
+		while (!engine->IsQuit())
+		{
+			engine->Update();
 
-		engine->GetRenderer().EndFrame();
+			actor->Update(engine->GetTime().GetDeltaTime());
+
+			engine->GetRenderer().SetColor(0, 0, 0, 0);
+			engine->GetRenderer().BeginFrame();
+
+			actor->Draw(engine->GetRenderer());
+			text->Draw(engine->GetRenderer(), 400, 300);
+			engine->GetRenderer().DrawTexture(texture.get(), 0, 0);
+
+			engine->GetPS().Draw(engine->GetRenderer());
+
+			engine->GetRenderer().EndFrame();
+		}
 	}
 
-	text->~Text();
-	font->~Font();
-
+	ResourceManager::Instance().Clear();
 	engine->Shutdown();
 
 	return 0;

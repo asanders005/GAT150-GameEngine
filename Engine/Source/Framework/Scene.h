@@ -1,5 +1,5 @@
 #pragma once
-#include "../Renderer/Particle.h"
+#include "Renderer/Particle.h"
 #include "Game.h"
 #include <list>
 #include <vector>
