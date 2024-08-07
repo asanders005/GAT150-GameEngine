@@ -3,6 +3,7 @@
 #include "Core/ETime.h"
 #include "Core/EAssert.h"
 #include "Core/EFile.h"
+#include "Core/json.h"
 
 // ** systems **
 // renderer

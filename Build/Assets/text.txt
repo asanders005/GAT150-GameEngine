@@ -1,0 +1,6 @@
+{
+	"name":"Aiden",
+	"age":19,
+	"isAwake":false,
+	"position":[400,300]
+}
