@@ -1,20 +1,21 @@
 #pragma once
+#include "Object.h"
 #include "Math/Transform.h"
-#include "Renderer/Model.h"
 #include "Components/Component.h"
-#include <string>
+
 #include <vector>
 #include <memory>
 
 class Scene;
 
-class Actor
+class Actor : public Object
 {
 public:
 	Actor() = default;
 	Actor(const Transform& transform) : m_transform{transform} {}
-	Actor(const Transform& transform, Model* model) : m_transform{ transform }, m_model { model } {}
 	
+	void Initialize() override;
+
 	virtual void Update(float dt);
 	virtual void Draw(class Renderer& renderer);
 
@@ -28,7 +29,7 @@ public:
 	const std::string& GetTag() { return m_tag; }
 
 	virtual void OnCollision(Actor* actor) {};
-	float GetRadius() { return (m_model) ? m_model->GetRadius() * m_transform.scale : 0; }
+	float GetRadius() { return 0; }
 
 	virtual void SetHP(int hp) { m_hp = hp; }
 
@@ -49,7 +50,6 @@ protected:
 
 	int m_damage = 0;
 
-	Model* m_model{ nullptr };
 	Scene* m_scene{ nullptr };
 
 	std::vector<std::unique_ptr<Component>> m_components;

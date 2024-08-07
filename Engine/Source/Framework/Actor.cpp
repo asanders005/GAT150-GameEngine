@@ -1,6 +1,14 @@
 #include "Actor.h"
 #include "Components/RenderComponent.h"
 
+void Actor::Initialize()
+{
+	for (auto& component : m_components)
+	{
+		component->Initialize();
+	}
+}
+
 void Actor::Update(float dt)
 {
 	if (m_lifespan != -1)

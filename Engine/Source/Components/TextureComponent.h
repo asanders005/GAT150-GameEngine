@@ -10,5 +10,6 @@ public:
 	void Draw(Renderer& renderer) override;
 
 public:
+	std::string textureName;
 	res_t<Texture> texture;
 };

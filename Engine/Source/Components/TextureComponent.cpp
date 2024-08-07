@@ -1,10 +1,14 @@
 #include "TextureComponent.h"
 #include "Renderer/Renderer.h"
 #include "Framework/Actor.h"
+#include "Resources/ResourceManager.h"
 
 void TextureComponent::Initialize()
 {
-	//
+	if (!textureName.empty())
+	{
+		//texture = ResourceManager::Instance().Get<Texture>(textureName);
+	}
 }
 
 void TextureComponent::Update(float dt)
