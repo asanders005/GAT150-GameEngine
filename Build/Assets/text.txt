@@ -4,6 +4,5 @@
 	"speed":11.5,
 	"isAwake":false,
 	"position":[400,300],
-	"color":[1.0, 0.5, 1.0, 1],
-	"component":"TextureComponent"
+	"color":[1.0, 0.5, 1.0, 1]
 }

@@ -11,9 +11,11 @@ class Scene;
 class Actor : public Object
 {
 public:
+	CLASS_DECLARATION(Actor)
+
 	Actor() = default;
 	Actor(const Transform& transform) : m_transform{transform} {}
-	
+
 	void Initialize() override;
 
 	virtual void Update(float dt);
@@ -24,7 +26,9 @@ public:
 	void SetDamping(float damping) { m_damping = damping; }
 	void SetLifespan(float lifespan) { m_lifespan = lifespan; }
 
+	void SetTransform(const Transform& transform) { m_transform = transform; }
 	const Transform& GetTransform() { return m_transform; }
+
 	void SetTag(const std::string& tag) { m_tag = tag; }
 	const std::string& GetTag() { return m_tag; }
 
@@ -44,7 +48,7 @@ protected:
 	bool m_destroyed = false;
 	float m_lifespan = -1;
 
-	Transform m_transform;
+	Transform m_transform{ {0, 0} };
 	Vector2 m_velocity{ 0, 0 };
 	float m_damping = 0;
 

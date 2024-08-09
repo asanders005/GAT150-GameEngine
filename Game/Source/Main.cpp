@@ -3,6 +3,10 @@
 
 int main(int argc, char* argv[])
 {
+	Factory::Instance().Register<Actor>(Actor::GetTypeName());
+	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
+	//auto a = Factory::Instance().Create("Actor");
+
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
 
@@ -44,8 +48,9 @@ int main(int argc, char* argv[])
 		std::unique_ptr<Text> text = std::make_unique<Text>(font, true);
 		text->Create(engine->GetRenderer(), "Hello World!", { 1, 1, 1 });
 
-		std::unique_ptr<Actor> actor = std::make_unique<Actor>(Transform{ { 400, 300 } });
-		std::unique_ptr<TextureComponent> tc = std::make_unique<TextureComponent>();
+		auto actor = Factory::Instance().Create<Actor>(Actor::GetTypeName());
+		actor->SetTransform({ { 400, 300 } });
+		auto tc = Factory::Instance().Create<TextureComponent>(TextureComponent::GetTypeName());
 		tc->texture = texture;
 		actor->AddComponent(std::move(tc));
 

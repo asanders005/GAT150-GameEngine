@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 
+#define CLASS_DECLARATION(class) \
+	static const char* GetTypeName() { return #class; }
+
 class Object
 {
 public:
