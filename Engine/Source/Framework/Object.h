@@ -6,6 +6,7 @@ class Object
 public:
 	Object() = default;
 	Object(const std::string& name) : name{ name } {}
+	virtual ~Object() = default;
 
 	virtual void Initialize() = 0;
 	virtual void Activate() { active = true; }

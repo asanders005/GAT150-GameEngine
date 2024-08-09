@@ -18,13 +18,24 @@ int main(int argc, char* argv[])
 
 	std::string name;
 	int age;
+	float speed;
 	bool isAwake;
+	Vector2 position;
+	Color color;
 
 	
 	READ_DATA(document, name);
 	READ_DATA(document, age);
+	READ_DATA(document, speed);
 	READ_DATA(document, isAwake);
-	std::cout << name << std::endl << age << std::endl << isAwake << std::endl;
+	READ_DATA(document, position);
+	READ_DATA(document, color);
+	std::cout << name << std::endl;
+	std::cout << age << std::endl;
+	std::cout << speed << std::endl;
+	std::cout << isAwake << std::endl;
+	std::cout << position.x << " " << position.y << std::endl;
+	std::cout << color.r << " " << color.g << " " << color.b << " " << color.a << std::endl;
 
 	{
 		res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("TestImage.jpg", engine->GetRenderer());

@@ -26,6 +26,7 @@
     <ClInclude Include="Source\Core\EAssert.h" />
     <ClInclude Include="Source\Core\EFile.h" />
     <ClInclude Include="Source\Core\ETime.h" />
+    <ClInclude Include="Source\Core\Factory.h" />
     <ClInclude Include="Source\Core\json.h" />
     <ClInclude Include="Source\Core\Singleton.h" />
     <ClInclude Include="Source\Engine.h" />
