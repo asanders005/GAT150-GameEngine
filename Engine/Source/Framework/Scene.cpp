@@ -69,5 +69,5 @@ void Scene::RemoveAll()
 
 void Scene::RemoveAll(std::string tag)
 {
-	m_actors.erase(std::remove_if(m_actors.begin(), m_actors.end(), [&](auto& actor) { return actor->GetTag() == tag; }), m_actors.end());
+	m_actors.erase(std::remove_if(m_actors.begin(), m_actors.end(), [&](auto& actor) { return actor->tag == tag; }), m_actors.end());
 }

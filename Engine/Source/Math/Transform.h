@@ -1,7 +1,8 @@
 #pragma once
 #include "Vector2.h"
+#include "Core/ISerializable.h"
 
-struct Transform
+struct Transform : public Serializable
 {
 	Vector2 position;
 	float rotation;
@@ -9,4 +10,7 @@ struct Transform
 
 	Transform() = default;
 	Transform(Vector2 position, float rotation = 0, float scale = 1) : position{ position }, rotation{ rotation }, scale{ scale } {}
+
+	void Read(const json_t& value) override;
+	void Write(json_t& value) override;
 };

@@ -1,10 +1,13 @@
 #pragma once
+#include "Core/ISerializable.h"
 #include <string>
 
 #define CLASS_DECLARATION(class) \
-	static const char* GetTypeName() { return #class; }
+	static const char* GetTypeName() { return #class; } \
+	virtual void Read(const json_t& value); \
+	virtual void Write(json_t& value);
 
-class Object
+class Object : public Serializable
 {
 public:
 	Object() = default;
