@@ -14,11 +14,13 @@ public:
 	Object(const std::string& name) : name{ name } {}
 	virtual ~Object() = default;
 
+	CLASS_DECLARATION(Object);
+
 	virtual void Initialize() = 0;
-	virtual void Activate() { active = true; }
-	virtual void Deactivate() { active = false; }
+	virtual void Activate() { isActive = true; }
+	virtual void Deactivate() { isActive = false; }
 
 public:
 	std::string name;
-	bool active{ false };
+	bool isActive{ false };
 };

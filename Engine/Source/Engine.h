@@ -23,6 +23,8 @@
 
 // ** framework **
 #include "Framework/Actor.h"
+#include "Framework/Scene.h"
+#include "Framework/Game.h"
 
 // ** math **
 #include "Math/Mathutils.h"

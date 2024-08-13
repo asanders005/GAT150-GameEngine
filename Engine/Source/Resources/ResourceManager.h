@@ -29,7 +29,7 @@ inline res_t<T> ResourceManager::Get(const std::string& name, TArgs ... args)
 	
 	if (m_resources.find(lowerName) != m_resources.end())
 	{
-		return std::dynamic_pointer_cast<T>(m_resources[name]);
+		return std::dynamic_pointer_cast<T>(m_resources[lowerName]);
 	}
 
 	// resource not found, create resource

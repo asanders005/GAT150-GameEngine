@@ -6,6 +6,10 @@
 
 #define READ_DATA(value, data) Json::Read(value, #data, data)
 #define READ_DATA_REQUIRED(value, data) Json::Read(value, #data, data, true)
+#define READ_DATA_NAME(value, name, data) Json::Read(value, name, data)
+
+#define HAS_DATA(value, data) value.HasMember(#data)
+#define GET_DATA(value, data) value[#data]
 
 namespace Json
 {

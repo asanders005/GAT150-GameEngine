@@ -1,0 +1,33 @@
+{
+  "actors": [
+    {
+      "name": "player",
+      "tag": "player",
+      "transform": {
+        "position": [ 60, 60 ],
+        "rotation": 0.0,
+        "scale": 1.0
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/TestImage.jpg"
+        }
+      ]
+    },
+    {
+      "name": "enemy",
+      "transform": {
+        "position": [ 500, 60 ],
+        "rotation": 90.0,
+        "scale": 1.0
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/TestImage.jpg"
+        }
+      ]
+    }
+  ]
+}
