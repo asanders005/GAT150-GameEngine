@@ -38,6 +38,7 @@
 
 // ** components **
 #include "Components/TextureComponent.h"
+#include "Components/EnginePhysicsComponent.h"
 
 #include <fmod.h>
 #include <SDL.h>

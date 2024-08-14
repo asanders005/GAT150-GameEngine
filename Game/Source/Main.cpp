@@ -1,10 +1,13 @@
 #include "Engine.h"
+#include "Components/PlayerComponent.h"
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
 	Factory::Instance().Register<Actor>(Actor::GetTypeName());
 	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
+	Factory::Instance().Register<EnginePhysicsComponent>(EnginePhysicsComponent::GetTypeName());
+	Factory::Instance().Register<PlayerComponent>(PlayerComponent::GetTypeName());
 
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();

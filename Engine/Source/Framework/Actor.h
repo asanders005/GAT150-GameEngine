@@ -23,6 +23,11 @@ public:
 
 	void AddComponent(std::unique_ptr<Component> component);
 
+	template<typename T>
+	T* GetComponent();
+	template<typename T>
+	std::vector<T*> GetComponents();
+
 	friend class Scene;
 
 public:
@@ -37,3 +42,29 @@ public:
 protected:
 	std::vector<std::unique_ptr<Component>> components;
 };
+
+template<typename T>
+inline T* Actor::GetComponent()
+{
+	for (auto& component : components)
+	{
+		T* result = dynamic_cast<T*>(component.get());
+		if (result) return result;
+	}
+
+	return nullptr;
+}
+
+template<typename T>
+inline std::vector<T*> Actor::GetComponents()
+{
+	std::vector<T*> results;
+
+	for (auto& component : components)
+	{
+		T* result = dynamic_cast<T*>(component.get());
+		if (result) results.push_back(result);
+	}
+
+	return results;
+}

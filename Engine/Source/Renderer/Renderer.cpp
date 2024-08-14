@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "Texture.h"
+#include "Math/Transform.h"
 #include <iostream>
 
 bool Renderer::Initialize()
@@ -77,7 +78,7 @@ void Renderer::SetColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 	SDL_SetRenderDrawColor(m_renderer, r, g, b, a);
 }
 
-void Renderer::SetColor(Color c)
+void Renderer::SetColor(Color& c)
 {
 	SDL_SetRenderDrawColor(m_renderer, Color::ToInt(c.r), Color::ToInt(c.g), Color::ToInt(c.b), Color::ToInt(c.a));
 }
@@ -92,7 +93,7 @@ void Renderer::DrawLine(float x1, float y1, float x2, float y2)
 	SDL_RenderDrawLineF(m_renderer, x1, y1, x2, y2);
 }
 
-void Renderer::DrawLine(Vector2 v1, Vector2 v2)
+void Renderer::DrawLine(Vector2& v1, Vector2& v2)
 {
 	SDL_RenderDrawLineF(m_renderer, v1.x, v1.y, v2.x, v2.y);
 }
@@ -107,7 +108,7 @@ void Renderer::DrawPoint(float x, float y)
 	SDL_RenderDrawPointF(m_renderer, x, y);
 }
 
-void Renderer::DrawPoint(Vector2 v)
+void Renderer::DrawPoint(Vector2& v)
 {
 	SDL_RenderDrawPointF(m_renderer, v.x, v.y);
 }
@@ -124,7 +125,7 @@ void Renderer::DrawRect(float x, float y, float w, float h)
 	SDL_RenderFillRectF(m_renderer, &rect);
 }
 
-void Renderer::DrawRect(Vector2 v, float w, float h)
+void Renderer::DrawRect(Vector2& v, float w, float h)
 {
 	SDL_FRect rect{ v.x - w / 2, v.y - h / 2, w, h };
 	SDL_RenderFillRectF(m_renderer, &rect);
@@ -141,4 +142,17 @@ void Renderer::DrawTexture(Texture* texture, float x, float y, float angle)
 	destRect.h = size.y;
 
 	SDL_RenderCopyExF(m_renderer, texture->m_texture, NULL, &destRect, angle, NULL, SDL_FLIP_NONE);
+}
+
+void Renderer::DrawTexture(Texture* texture, const Transform& transform, bool hflip)
+{
+	Vector2 size = texture->GetSize() * transform.scale;
+
+	SDL_FRect destRect;
+	destRect.x = transform.position.x;
+	destRect.y = transform.position.y;
+	destRect.w = size.x;
+	destRect.h = size.y;
+
+	SDL_RenderCopyExF(m_renderer, texture->m_texture, NULL, &destRect, transform.rotation, NULL, (hflip) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }

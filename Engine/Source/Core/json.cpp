@@ -38,7 +38,7 @@ namespace Json
 
 	bool Read(const rapidjson::Value& value, const std::string& name, float& data, bool isRequired)
 	{
-		if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsFloat())
+		if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsNumber())
 		{
 			if (isRequired) std::cerr << "Could not read JSON value: " << name << std::endl;
 			return false;
