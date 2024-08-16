@@ -39,6 +39,7 @@
 // ** components **
 #include "Components/TextureComponent.h"
 #include "Components/EnginePhysicsComponent.h"
+#include "Components/TextComponent.h"
 
 #include <fmod.h>
 #include <SDL.h>

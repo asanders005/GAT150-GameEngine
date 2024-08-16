@@ -14,7 +14,7 @@ void Scene::Update(float dt)
 {
 	for (auto& actor : actors)
 	{
-		actor->Update(dt);
+		if (actor->isActive) actor->Update(dt);
 	}
 	
 	std::erase_if(actors, [](auto& actor) { return actor->isDestroyed; });
@@ -24,7 +24,7 @@ void Scene::Draw(Renderer& renderer)
 {
 	for (auto& actor : actors)
 	{
-		actor->Draw(renderer);
+		if (actor->isActive) actor->Draw(renderer);
 	}
 }
 

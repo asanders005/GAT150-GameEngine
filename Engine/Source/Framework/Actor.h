@@ -18,13 +18,14 @@ public:
 
 	void Initialize() override;
 
-	virtual void Update(float dt);
+	virtual void Update(float dt); 
 	virtual void Draw(class Renderer& renderer);
 
 	void AddComponent(std::unique_ptr<Component> component);
 
 	template<typename T>
 	T* GetComponent();
+
 	template<typename T>
 	std::vector<T*> GetComponents();
 

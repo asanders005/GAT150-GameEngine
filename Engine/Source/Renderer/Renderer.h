@@ -1,9 +1,10 @@
 #pragma once
 #include "Color.h"
 #include <SDL.h>
-#include <string>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#include <string>
+#include <memory>
 
 struct Vector2;
 
@@ -34,8 +35,8 @@ public:
 	void DrawRect(float x, float y, float w, float h);
 	void DrawRect(Vector2& v, float w, float h);
 
-	void DrawTexture(class Texture* texture, float x, float y, float angle = 0.0f);
-	void DrawTexture(class Texture* texture, const struct Transform& transform, bool hflip = 0);
+	void DrawTexture(std::weak_ptr<class Texture> texture, float x, float y, float angle = 0.0f);
+	void DrawTexture(std::weak_ptr<class Texture> texture, const struct Transform& transform, bool hflip = 0);
 
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }

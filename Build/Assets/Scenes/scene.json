@@ -36,6 +36,23 @@
           "textureName": "Textures/TestImage.jpg"
         }
       ]
+    },
+    {
+      "name": "text",
+      "transform": {
+        "position": [ 100, 300 ],
+        "rotation": 0,
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "Hello World!",
+          "fontName": "Fonts/pdark.ttf",
+          "fontSize": 24,
+          "color": [0.75, 0, 0.75, 1]
+        }
+      ]
     }
   ]
 }

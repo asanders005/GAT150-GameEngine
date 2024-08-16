@@ -3,11 +3,13 @@
 #include <string>
 
 struct Vector2;
+struct SDL_Texture;
 
 class Texture : public Resource
 {
 public:
 	Texture() = default;
+	Texture(SDL_Texture* texture) : m_texture{ texture } {}
 	~Texture();
 
 	bool Create(std::string name, ...) override;

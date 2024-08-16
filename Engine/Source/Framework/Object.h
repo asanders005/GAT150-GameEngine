@@ -22,5 +22,5 @@ public:
 
 public:
 	std::string name;
-	bool isActive{ false };
+	bool isActive = true;
 };

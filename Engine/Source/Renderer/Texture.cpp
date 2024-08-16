@@ -5,7 +5,6 @@
 #include <SDL_image.h>
 #include <iostream>
 
-
 Texture::~Texture()
 {
 	if (m_texture) SDL_DestroyTexture(m_texture);
