@@ -4,6 +4,8 @@
 #include "Resources/ResourceManager.h"
 #include "Engine.h"
 
+FACTORY_REGISTER(TextureComponent);
+
 void TextureComponent::Initialize()
 {
 	if (!textureName.empty())

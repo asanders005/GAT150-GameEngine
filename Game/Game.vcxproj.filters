@@ -31,4 +31,9 @@
       <Filter>Source\Components</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint">
+      <Filter>Source</Filter>
+    </None>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include "Components/RenderComponent.h"
-#include "Core/Factory.h"
+
+FACTORY_REGISTER(Actor);
 
 void Actor::Initialize()
 {

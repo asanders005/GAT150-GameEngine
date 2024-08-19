@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Actor.h"
 #include "Core/Factory.h"
+#include "Components/CollisionComponent.h"
 
 void Scene::Initialize()
 {
@@ -15,6 +16,26 @@ void Scene::Update(float dt)
 	for (auto& actor : actors)
 	{
 		if (actor->isActive) actor->Update(dt);
+	}
+
+	for (auto& actor1 : actors)
+	{
+		auto collision1 = actor1->GetComponent<CollisionComponent>();
+		if (!collision1) continue;
+
+		for (auto& actor2 : actors)
+		{
+			if (actor1 == actor2) continue;
+
+			auto collision2 = actor2->GetComponent<CollisionComponent>();
+			if (!collision2) continue;
+			
+			if (collision1->CheckCollision(collision2))
+			{
+				if (actor1->OnCollisionEnter) actor1->OnCollisionEnter(actor2.get());
+				if (actor2->OnCollisionEnter) actor2->OnCollisionEnter(actor1.get());
+			}
+		}
 	}
 	
 	std::erase_if(actors, [](auto& actor) { return actor->isDestroyed; });

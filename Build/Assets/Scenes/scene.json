@@ -1,25 +1,43 @@
 {
   "actors": [
     {
+      "name": "background",
+      "transform": {
+        "position": [ 0, 0 ],
+        "rotation": 0,
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/green_nebula.png"
+        }
+      ]
+    },
+    {
       "name": "player",
       "tag": "player",
       "transform": {
         "position": [ 60, 60 ],
-        "rotation": 0,
+        "rotation": 90,
         "scale": 1
       },
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "Textures/TestImage.jpg"
+          "textureName": "Textures/Player.png"
         },
         {
           "type": "EnginePhysicsComponent",
-          "damping": 0.5
+          "damping": 2.0
         },
         {
           "type": "PlayerComponent",
-          "speed": 200
+          "speed": 500
+        },
+        {
+          "type": "CircleCollisionComponent",
+          "radius": 24
         }
       ]
     },
@@ -27,18 +45,23 @@
       "name": "enemy",
       "transform": {
         "position": [ 500, 60 ],
-        "rotation": 90,
-        "scale": 2
+        "rotation": -90,
+        "scale": 1
       },
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "Textures/TestImage.jpg"
+          "textureName": "Textures/Enemy.png"
+        },
+        {
+          "type": "CircleCollisionComponent",
+          "radius": 25
         }
       ]
     },
     {
       "name": "text",
+      "isActive": false,
       "transform": {
         "position": [ 100, 300 ],
         "rotation": 0,
@@ -50,7 +73,7 @@
           "text": "Hello World!",
           "fontName": "Fonts/pdark.ttf",
           "fontSize": 24,
-          "color": [0.75, 0, 0.75, 1]
+          "color": [ 0.75, 0, 0.75, 1 ]
         }
       ]
     }

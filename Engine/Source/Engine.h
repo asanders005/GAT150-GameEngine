@@ -40,6 +40,7 @@
 #include "Components/TextureComponent.h"
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
+#include "Components/CircleCollisionComponent.h"
 
 // ** physics **
 #include "Physics/Physics.h"

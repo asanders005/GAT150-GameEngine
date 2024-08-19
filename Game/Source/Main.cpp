@@ -2,13 +2,16 @@
 #include "Components/PlayerComponent.h"
 #include <iostream>
 
+void f1(int i) { std::cout << "f1: " << i << std::endl; }
+void f2(int i) { std::cout << "f2: " << i << std::endl; }
+
 int main(int argc, char* argv[])
 {
-	Factory::Instance().Register<Actor>(Actor::GetTypeName());
-	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
-	Factory::Instance().Register<EnginePhysicsComponent>(EnginePhysicsComponent::GetTypeName());
-	Factory::Instance().Register<PlayerComponent>(PlayerComponent::GetTypeName());
-	Factory::Instance().Register<TextComponent>(TextComponent::GetTypeName());
+	void(*fp)(int);
+	fp = &f1;
+	fp(66);
+	fp = &f2;
+	fp(-21);
 
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
