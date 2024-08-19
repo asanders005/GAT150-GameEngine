@@ -9,6 +9,10 @@
 #include "Core/Factory.h"
 
 // ** systems **
+//audio
+#include "Audio/Audio.h"
+//input
+#include "Input/Input.h"
 // renderer
 #include "Renderer/Renderer.h"
 #include "Renderer/Particle.h"
@@ -16,10 +20,6 @@
 #include "Renderer/Texture.h"
 #include "Renderer/Font.h"
 #include "Renderer/Text.h"
-//input
-#include "Input/Input.h"
-//audio
-#include "Audio/Audio.h"
 
 // ** framework **
 #include "Framework/Actor.h"
@@ -41,6 +41,9 @@
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
 
+// ** physics **
+#include "Physics/Physics.h"
+
 #include <fmod.h>
 #include <SDL.h>
 #include <memory>
@@ -59,6 +62,7 @@ public:
 	Renderer& GetRenderer() { return *m_renderer; }
 	Input& GetInput() { return *m_input; }
 	Audio& GetAudio() { return *m_audio; }
+	Physics& GetPhysics() { return *m_physics; }
 	ParticleSystem& GetPS() { return *m_particleSystem; }
 	void SetParticlesActive(bool active) { m_particlesActive = active; }
 
@@ -74,6 +78,7 @@ private:
 	std::unique_ptr<Renderer> m_renderer;
 	std::unique_ptr<Input> m_input;
 	std::unique_ptr<Audio> m_audio;
+	std::unique_ptr<Physics> m_physics;
 
 	bool m_particlesActive = true;
 	std::unique_ptr<ParticleSystem> m_particleSystem;

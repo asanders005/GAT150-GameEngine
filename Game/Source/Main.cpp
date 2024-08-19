@@ -47,12 +47,12 @@ int main(int argc, char* argv[])
 			scene->Update(engine->GetTime().GetDeltaTime());
 
 			auto* actor = scene->GetActor<Actor>("text");
-			if (actor)
-			{
-				//actor->transform.position.x += 50 * engine->GetTime().GetDeltaTime();
-				actor->transform.rotation += 720 * engine->GetTime().GetDeltaTime();
-				actor->transform.scale = 2 * Math::Abs(Math::Sin(engine->GetTime().GetTime()));
-			}
+			//if (actor)
+			//{
+			//	//actor->transform.position.x += 50 * engine->GetTime().GetDeltaTime();
+			//	actor->transform.rotation += 720 * engine->GetTime().GetDeltaTime();
+			//	actor->transform.scale = 2 * Math::Abs(Math::Sin(engine->GetTime().GetTime()));
+			//}
 
 			// render
 			engine->GetRenderer().SetColor(0, 0, 0, 0);
