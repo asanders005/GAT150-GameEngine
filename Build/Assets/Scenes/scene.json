@@ -3,7 +3,7 @@
     {
       "name": "background",
       "transform": {
-        "position": [ 0, 0 ],
+        "position": [ 400, 300 ],
         "rotation": 0,
         "scale": 2
       },
@@ -29,11 +29,11 @@
         },
         {
           "type": "EnginePhysicsComponent",
-          "damping": 2.0
+          "damping": 3.0
         },
         {
           "type": "PlayerComponent",
-          "speed": 500
+          "speed": 700
         },
         {
           "type": "CircleCollisionComponent",
@@ -74,6 +74,33 @@
           "fontName": "Fonts/pdark.ttf",
           "fontSize": 24,
           "color": [ 0.75, 0, 0.75, 1 ]
+        }
+      ]
+    },
+    {
+      "name": "rocket",
+      "prototype": true,
+      "transform": {
+        "position": [ 400, 300 ],
+        "rotation": 0,
+        "scale": 1
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/Rocket.png"
+        },
+        {
+          "type": "EnginePhysicsComponent",
+          "damping": 0
+        },
+        {
+          "type": "RocketComponent",
+          "speed": 500
+        },
+        {
+          "type": "CircleCollisionComponent",
+          "radius": 16
         }
       ]
     }

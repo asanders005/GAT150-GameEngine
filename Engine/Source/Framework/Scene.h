@@ -13,15 +13,17 @@ class Scene : public Object
 {
 public:
 	Scene(Engine* engine, Game* game = nullptr) : engine{ engine }, game { game } {}
+	Scene(const Scene& other);
 
 	void Initialize() override;
 
-	CLASS_DECLARATION(Scene);
+	CLASS_DECLARATION(Scene)
+	CLASS_PROTOTYPE(Scene)
 
 	void Update(float dt);
 	void Draw(Renderer& renderer);
 
-	void AddActor(std::unique_ptr<Actor> actor);
+	void AddActor(std::unique_ptr<Actor> actor, bool initialize = false);
 	
 
 	void RemoveAll();

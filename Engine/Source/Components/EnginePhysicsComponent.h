@@ -4,7 +4,8 @@
 class EnginePhysicsComponent : public PhysicsComponent
 {
 public:
-	CLASS_DECLARATION(EnginePhysicsComponent);
+	CLASS_DECLARATION(EnginePhysicsComponent)
+	CLASS_PROTOTYPE(EnginePhysicsComponent)
 
 	void Initialize() override;
 	void Update(float dt) override;

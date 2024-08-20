@@ -4,7 +4,8 @@
 class CircleCollisionComponent : public CollisionComponent
 {
 public:
-	CLASS_DECLARATION(CircleCollisionComponent);
+	CLASS_DECLARATION(CircleCollisionComponent)
+	CLASS_PROTOTYPE(CircleCollisionComponent)
 
 	void Initialize() override;
 	void Update(float dt) override;
