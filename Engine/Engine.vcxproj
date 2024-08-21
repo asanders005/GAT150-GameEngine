@@ -37,6 +37,9 @@
     <ClInclude Include="Source\Core\json.h" />
     <ClInclude Include="Source\Core\Singleton.h" />
     <ClInclude Include="Source\Engine.h" />
+    <ClInclude Include="Source\Event\Event.h" />
+    <ClInclude Include="Source\Event\EventManager.h" />
+    <ClInclude Include="Source\Event\Observer.h" />
     <ClInclude Include="Source\Framework\Actor.h" />
     <ClInclude Include="Source\Framework\Game.h" />
     <ClInclude Include="Source\Framework\Object.h" />
@@ -71,6 +74,7 @@
     <ClCompile Include="Source\Core\ETime.cpp" />
     <ClCompile Include="Source\Core\json.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
+    <ClCompile Include="Source\Event\EventManager.cpp" />
     <ClCompile Include="Source\Framework\Actor.cpp" />
     <ClCompile Include="Source\Framework\Object.cpp" />
     <ClCompile Include="Source\Framework\Scene.cpp" />

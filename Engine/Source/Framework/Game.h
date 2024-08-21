@@ -8,7 +8,6 @@ class Font;
 class Game
 {
 public:
-	Game() = default;
 	Game(Engine* engine) : m_engine{ engine } {}
 
 	virtual bool Initialize() = 0;
@@ -25,9 +24,7 @@ public:
 
 protected:
 	int m_score = 0;
-
 	int m_lives = 0;
 
 	Engine* m_engine{ nullptr };
-	Scene* m_scene{ nullptr };
 };

@@ -33,7 +33,9 @@ void PlayerComponent::Update(float dt)
 
 void PlayerComponent::OnCollisionEnter(Actor* actor)
 {
-	std::cout << "Player Hit\n";
+	//std::cout << "Player Hit\n";
+	EVENT_NOTIFY(PlayerDead);
+	EVENT_NOTIFY_DATA(AddPoints, 999);
 }
 
 void PlayerComponent::Read(const json_t& value)
