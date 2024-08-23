@@ -18,7 +18,11 @@ void RocketComponent::Update(float dt)
 
 void RocketComponent::OnCollisionEnter(Actor* actor)
 {
-	std::cout << "Rocket Hit\n";
+	if (!actor->isDestroyed && actor->tag == "enemy")
+	{
+		actor->isDestroyed = true;
+		EVENT_NOTIFY_DATA(AddPoints, 100);
+	}
 }
 
 void RocketComponent::Read(const json_t& value)

@@ -6,7 +6,8 @@
 #include <functional>
 #include <map>
 
-#define ADD_OBSERVER(id, function) EventManager::Instance().AddObserver(#id, this, std::bind(&function, this, std::placeholders::_1));
+#define ADD_OBSERVER(id, function) EventManager::Instance().AddObserver(#id, this, std::bind(&function, this, std::placeholders::_1))
+#define REMOVE_OBSERVER EventManager::Instance().RemoveObserver(this)
 #define EVENT_NOTIFY_DATA(id, data) EventManager::Instance().Notify({ #id, data })
 #define EVENT_NOTIFY(id) EventManager::Instance().Notify({ #id, NULL })
 
@@ -23,6 +24,7 @@ public:
 
 public:
 	void AddObserver(const id_t& id, Observer* observer, EventHandler eventHandler);
+	void RemoveObserver(Observer* observer);
 	void Notify(const Event& event);
 
 private:

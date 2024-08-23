@@ -24,7 +24,7 @@ void Scene::Update(float dt)
 		if (actor->isActive) actor->Update(dt);
 	}
 
-	for (auto& actor1 : actors)
+	/*for (auto& actor1 : actors)
 	{
 		auto collision1 = actor1->GetComponent<CollisionComponent>();
 		if (!collision1) continue;
@@ -42,7 +42,7 @@ void Scene::Update(float dt)
 				if (actor2->OnCollisionEnter) actor2->OnCollisionEnter(actor1.get());
 			}
 		}
-	}
+	} */
 	
 	std::erase_if(actors, [](auto& actor) { return actor->isDestroyed; });
 }

@@ -28,21 +28,21 @@
           "textureName": "Textures/Player.png"
         },
         {
-          "type": "EnginePhysicsComponent",
-          "damping": 3.0
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.85,
+          "angularDamping": 0.5,
+          "gravityScale": 0,
+          "size": [ 32, 32 ]
         },
         {
           "type": "PlayerComponent",
-          "speed": 700
-        },
-        {
-          "type": "CircleCollisionComponent",
-          "radius": 24
+          "speed": 500
         }
       ]
     },
     {
       "name": "enemy",
+      "tag": "enemy",
       "transform": {
         "position": [ 500, 60 ],
         "rotation": -90,
@@ -54,8 +54,11 @@
           "textureName": "Textures/Enemy.png"
         },
         {
-          "type": "CircleCollisionComponent",
-          "radius": 25
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.85,
+          "angularDamping": 0.5,
+          "gravityScale": 0,
+          "size": [ 32, 32 ]
         }
       ]
     },
@@ -91,16 +94,23 @@
           "textureName": "Textures/Rocket.png"
         },
         {
-          "type": "EnginePhysicsComponent",
-          "damping": 0
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "angularDamping": 0,
+          "gravityScale": 0,
+          "isSensor": true,
+          "size": [ 32, 16 ]
         },
         {
           "type": "RocketComponent",
           "speed": 500
         },
         {
-          "type": "CircleCollisionComponent",
-          "radius": 16
+          "type": "AudioComponent",
+          "soundName": "Audio/Shoot.wav",
+          "playOnStart": true,
+          "volume": 1,
+          "pitch": 2
         }
       ]
     }

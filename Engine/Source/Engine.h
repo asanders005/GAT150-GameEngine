@@ -40,10 +40,11 @@
 #include "Event/EventManager.h"
 
 // ** components **
-#include "Components/TextureComponent.h"
+#include "Components/AudioComponent.h"
+#include "Components/CircleCollisionComponent.h"
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
-#include "Components/CircleCollisionComponent.h"
+#include "Components/TextureComponent.h"
 
 // ** physics **
 #include "Physics/Physics.h"
