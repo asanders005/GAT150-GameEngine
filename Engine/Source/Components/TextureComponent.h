@@ -14,5 +14,6 @@ public:
 
 public:
 	std::string textureName;
+	Rect source;
 	res_t<Texture> texture;
 };

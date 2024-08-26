@@ -19,7 +19,7 @@
       "tag": "player",
       "transform": {
         "position": [ 60, 60 ],
-        "rotation": 90,
+        "rotation": 0,
         "scale": 1
       },
       "components": [
@@ -29,14 +29,17 @@
         },
         {
           "type": "Box2DPhysicsComponent",
-          "damping": 0.85,
+          "damping": 0.5,
           "angularDamping": 0.5,
-          "gravityScale": 0,
-          "size": [ 32, 32 ]
+          "gravityScale": 1,
+          "friction": 0.2,
+          "constrainAngle": true,
+          "size": [50, 50]
         },
         {
-          "type": "PlayerComponent",
-          "speed": 500
+          "type": "CharacterComponent",
+          "speed": 100,
+          "jumpSpeed": 500
         }
       ]
     },
@@ -58,7 +61,8 @@
           "damping": 0.85,
           "angularDamping": 0.5,
           "gravityScale": 0,
-          "size": [ 32, 32 ]
+          "size": [ 32, 32 ],
+          "constrainAngle": true
         }
       ]
     },

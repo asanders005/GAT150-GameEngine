@@ -1,18 +1,21 @@
 #pragma once
 #include "Components/Component.h"
 
-class PlayerComponent : public Component
+class CharacterComponent : public Component
 {
 public:
-	CLASS_DECLARATION(PlayerComponent)
-	CLASS_PROTOTYPE(PlayerComponent)
+	CLASS_DECLARATION(CharacterComponent)
+	CLASS_PROTOTYPE(CharacterComponent)
 
 	void Initialize() override;
 	void Update(float dt) override;
 
 	void OnCollisionEnter(Actor* actor);
+	void OnCollisionExit(Actor* actor);
 
 public:
 	float speed = 0;
 	float jumpSpeed = 0;
+
+	bool onGround = true;
 };

@@ -28,9 +28,10 @@
 
 // ** math **
 #include "Math/Mathutils.h"
-#include "Math/Vector2.h"
 #include "Math/Random.h"
+#include "Math/Rect.h"
 #include "Math/Transform.h"
+#include "Math/Vector2.h"
 
 // ** resources **
 #include "Resources/Resource.h"

@@ -26,6 +26,9 @@
     <ClCompile Include="Source\ExampleGame.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Components\CharacterComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Build\Assets\Scenes\scene.json">
@@ -42,10 +45,16 @@
     <ClInclude Include="Source\ExampleGame.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Components\CharacterComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint">
       <Filter>Source</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\tilemap.json">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

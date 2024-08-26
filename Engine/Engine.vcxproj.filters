@@ -137,6 +137,9 @@
     <ClCompile Include="Source\Physics\RigidBody.cpp">
       <Filter>Source\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Components\TilemapComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\EAssert.h">
@@ -276,6 +279,12 @@
     </ClInclude>
     <ClInclude Include="Source\Physics\RigidBody.h">
       <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Rect.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\TilemapComponent.h">
+      <Filter>Source\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

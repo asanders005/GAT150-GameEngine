@@ -1,5 +1,4 @@
 #pragma once
-#include "Color.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
@@ -21,7 +20,7 @@ public:
 	void EndFrame();
 
 	void SetColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
-	void SetColor(Color& c);
+	void SetColor(struct Color& c);
 
 	void DrawLine(int x1, int y1, int x2, int y2);
 	void DrawLine(float x1, float y1, float x2, float y2);
@@ -37,6 +36,7 @@ public:
 
 	void DrawTexture(std::weak_ptr<class Texture> texture, float x, float y, float angle = 0.0f);
 	void DrawTexture(std::weak_ptr<class Texture> texture, const struct Transform& transform, bool hflip = 0);
+	void DrawTexture(std::weak_ptr<class Texture> texture, const struct Transform& transform, const struct Rect& source, bool hflip = 0);
 
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }
