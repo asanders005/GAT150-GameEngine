@@ -13,6 +13,7 @@ public:
 	~Texture();
 
 	bool Create(std::string name, ...) override;
+	bool Load(const std::string& filename, class Renderer& renderer);
 
 	Vector2 GetSize();
 
@@ -21,5 +22,4 @@ public:
 private:
 	struct SDL_Texture* m_texture{ nullptr };
 
-	bool Load(const std::string& filename, class Renderer& renderer);
 };

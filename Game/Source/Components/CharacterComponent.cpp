@@ -14,6 +14,16 @@ void CharacterComponent::Update(float dt)
 	float xDir = 0;
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A)) xDir -= 1;
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) xDir += 1;
+	if (xDir != 0) 
+	{
+		/*animations["idleAnim"]->Deactivate();
+		animations["walkAnim"]->Activate();*/
+	}
+	else
+	{
+		/*animations["walkAnim"]->Deactivate();
+		animations["idleAnim"]->Activate();*/
+	}
 	owner->GetComponent<PhysicsComponent>()->ApplyForce(Vector2{ xDir, 0.0f } * speed * 50);
 
 	if (owner->scene->engine->GetInput().GetKeyPressed(SDL_SCANCODE_SPACE) && onGround)
@@ -27,10 +37,6 @@ void CharacterComponent::OnCollisionEnter(Actor* actor)
 	if (actor->tag == "Ground")
 	{
 		onGround = true;
-	}
-	if (actor->tag == "mushroom")
-	{
-		
 	}
 	if (actor->tag == "enemy") EVENT_NOTIFY(PlayerDead);
 }

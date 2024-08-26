@@ -21,7 +21,7 @@
 				},
 				{
 					"type": "Box2DPhysicsComponent",
-					"isDynamic": false
+          "isDynamic": false
 				}
 			]
 		},

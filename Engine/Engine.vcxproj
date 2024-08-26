@@ -31,6 +31,7 @@
     <ClInclude Include="Source\Components\PhysicsComponent.h" />
     <ClInclude Include="Source\Components\RenderComponent.h" />
     <ClInclude Include="Source\Components\TextComponent.h" />
+    <ClInclude Include="Source\Components\TextureAnimationComponent.h" />
     <ClInclude Include="Source\Components\TextureComponent.h" />
     <ClInclude Include="Source\Components\TilemapComponent.h" />
     <ClInclude Include="Source\Core\EAssert.h" />
@@ -78,6 +79,7 @@
     <ClCompile Include="Source\Components\EnginePhysicsComponent.cpp" />
     <ClCompile Include="Source\Components\PhysicsComponent.cpp" />
     <ClCompile Include="Source\Components\TextComponent.cpp" />
+    <ClCompile Include="Source\Components\TextureAnimationComponent.cpp" />
     <ClCompile Include="Source\Components\TextureComponent.cpp" />
     <ClCompile Include="Source\Components\TilemapComponent.cpp" />
     <ClCompile Include="Source\Core\EAssert.cpp" />

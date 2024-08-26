@@ -15,6 +15,26 @@
       ]
     },
     {
+      "name": "coin",
+      "transform": {
+        "position": [ 400, 300 ],
+        "rotation": 0,
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "textureName": "textures/coin.png",
+          "fps": 8,
+          "loop": true,
+          "numColumns": 8,
+          "numRows": 1,
+          "startFrame": 1,
+          "endFrame": 8
+        }
+      ]
+    },
+    {
       "name": "player",
       "tag": "player",
       "transform": {
@@ -24,8 +44,25 @@
       },
       "components": [
         {
-          "type": "TextureComponent",
-          "textureName": "Textures/Player.png"
+          "type": "TextureAnimationComponent",
+          "textureName": "Textures/Player/player_idle.png",
+          "fps": 10,
+          "loop": true,
+          "numColumns": 9,
+          "numRows": 1,
+          "startFrame": 1,
+          "endFrame": 9
+        },
+        {
+          "type": "TextureAnimationComponent",
+          "textureName": "Textures/Player/player_walk.png",
+          "fps": 10,
+          "loop": true,
+          "numColumns": 4,
+          "numRows": 1,
+          "startFrame": 1,
+          "endFrame": 4,
+          "isActive": false
         },
         {
           "type": "Box2DPhysicsComponent",
@@ -34,11 +71,11 @@
           "gravityScale": 1,
           "friction": 0.2,
           "constrainAngle": true,
-          "size": [50, 50]
+          "size": [20, 20]
         },
         {
           "type": "CharacterComponent",
-          "speed": 100,
+          "speed": 25,
           "jumpSpeed": 500
         }
       ]

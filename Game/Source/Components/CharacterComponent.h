@@ -1,6 +1,8 @@
 #pragma once
 #include "Components/Component.h"
 
+#include <map>
+
 class CharacterComponent : public Component
 {
 public:
