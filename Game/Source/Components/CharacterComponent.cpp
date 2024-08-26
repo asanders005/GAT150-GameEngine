@@ -16,15 +16,15 @@ void CharacterComponent::Update(float dt)
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) xDir += 1;
 	if (xDir != 0) 
 	{
-		/*animations["idleAnim"]->Deactivate();
-		animations["walkAnim"]->Activate();*/
+		owner->GetComponent<TextureAnimationComponent>("playerIdleAnim")->Deactivate();
+		owner->GetComponent<TextureAnimationComponent>("playerWalkAnim")->Activate();
 	}
 	else
 	{
-		/*animations["walkAnim"]->Deactivate();
-		animations["idleAnim"]->Activate();*/
+		owner->GetComponent<TextureAnimationComponent>("playerWalkAnim")->Deactivate();
+		owner->GetComponent<TextureAnimationComponent>("playerIdleAnim")->Activate();
 	}
-	owner->GetComponent<PhysicsComponent>()->ApplyForce(Vector2{ xDir, 0.0f } * speed * 50);
+	owner->GetComponent<PhysicsComponent>()->ApplyForce(Vector2{ xDir, 0.0f } * speed);
 
 	if (owner->scene->engine->GetInput().GetKeyPressed(SDL_SCANCODE_SPACE) && onGround)
 	{

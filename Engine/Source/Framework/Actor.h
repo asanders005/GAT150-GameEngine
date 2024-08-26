@@ -33,6 +33,9 @@ public:
 	T* GetComponent();
 
 	template<typename T>
+	T* GetComponent(std::string name);
+
+	template<typename T>
 	std::vector<T*> GetComponents();
 
 	friend class Scene;
@@ -59,6 +62,17 @@ inline T* Actor::GetComponent()
 		if (result) return result;
 	}
 
+	return nullptr;
+}
+
+template<typename T>
+inline T* Actor::GetComponent(std::string name)
+{
+	for (auto& component : components)
+	{
+		T* result = dynamic_cast<T*>(component.get());
+		if (result && result->name == name) return result;
+	}
 	return nullptr;
 }
 

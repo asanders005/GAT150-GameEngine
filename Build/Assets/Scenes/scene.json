@@ -45,6 +45,7 @@
       "components": [
         {
           "type": "TextureAnimationComponent",
+          "name": "playerIdleAnim",
           "textureName": "Textures/Player/player_idle.png",
           "fps": 10,
           "loop": true,
@@ -55,6 +56,7 @@
         },
         {
           "type": "TextureAnimationComponent",
+          "name": "playerWalkAnim",
           "textureName": "Textures/Player/player_walk.png",
           "fps": 10,
           "loop": true,
@@ -75,7 +77,7 @@
         },
         {
           "type": "CharacterComponent",
-          "speed": 25,
+          "speed": 500,
           "jumpSpeed": 500
         }
       ]
