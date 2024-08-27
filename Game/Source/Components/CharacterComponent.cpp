@@ -37,13 +37,18 @@ void CharacterComponent::Update(float dt)
 
 void CharacterComponent::OnCollisionEnter(Actor* actor)
 {
-	if (actor->tag == "Ground")	groundCount++;
-	if (actor->tag == "enemy") EVENT_NOTIFY(PlayerDead);
+	if (IsEqualIgnoreCase(actor->tag, "ground")) groundCount++;
+	if (IsEqualIgnoreCase(actor->tag, "enemy")) EVENT_NOTIFY(PlayerDead);
+	if (IsEqualIgnoreCase(actor->tag, "pickup"))
+	{
+		if (IsEqualIgnoreCase(actor->name, "coin")) EVENT_NOTIFY_DATA(AddPoints, 100);
+		actor->isDestroyed = true;
+	}
 }
 
 void CharacterComponent::OnCollisionExit(Actor* actor)
 {
-	if (actor->tag == "Ground")	groundCount--;
+	if (IsEqualIgnoreCase(actor->tag, "ground")) groundCount--;
 }
 
 void CharacterComponent::Read(const json_t& value)

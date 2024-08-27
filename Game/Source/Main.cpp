@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "ExampleGame.h"
+#include "FungalLeap.h"
 
 #include <iostream>
 
@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
 
-	std::unique_ptr<Game> game = std::make_unique<ExampleGame>(engine.get());
+	std::unique_ptr<Game> game = std::make_unique<FungalLeap>(engine.get());
 	game->Initialize();
 
 	while (!engine->IsQuit())

@@ -5,6 +5,8 @@ FACTORY_REGISTER(Actor);
 
 Actor::Actor(const Actor& other)
 {
+	name = other.name;
+
 	tag = other.tag;
 	lifespan = other.lifespan;
 	isDestroyed = false;

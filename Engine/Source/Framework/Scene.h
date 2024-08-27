@@ -36,8 +36,8 @@ public:
 	T* GetActor(const std::string& name);
 
 public:
-	Engine* engine;
-	Game* game;
+	Engine* engine{ nullptr };
+	Game* game{ nullptr };
 	
 private:
 	std::list<std::unique_ptr<Actor>> actors;

@@ -55,6 +55,7 @@
     {
       "type": "Actor",
       "name": "coin",
+      "tag": "pickup",
       "prototype": true,
       "components": [
         {
@@ -71,6 +72,12 @@
               "textureName": "textures/props/coin.png"
             }
           ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "isSensor": true,
+          "shape": "circle"
         }
       ]
     },
