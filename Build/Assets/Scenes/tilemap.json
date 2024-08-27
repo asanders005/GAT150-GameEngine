@@ -11,72 +11,106 @@
 			"components": [
 				{
 					"type": "TextureComponent",
-					"textureName": "textures/tileset_32x32.png",
+					"textureName": "textures/tilesets/tileset.png",
 					"source": [
-						96,
-						416,
-						32,
-						32
+						16,
+						16,
+						16,
+						16
 					]
 				},
 				{
 					"type": "Box2DPhysicsComponent",
-          "isDynamic": false
+          "isDynamic": false,
+          "restitution": 0
 				}
 			]
 		},
-		{
-			"type": "Actor",
-			"name": "tile02",
-			"tag": "Ground",
-			"prototype": true,
-			"transform": {
-				"scale": 2
-			},
-			"components": [
-				{
-					"type": "TextureComponent",
-					"textureName": "textures/tileset_32x32.png",
-					"source": [
-						0,
-						128,
-						32,
-						32
-					]
-				},
-				{
-					"type": "Box2DPhysicsComponent",
-					"isDynamic": false
-				}
-			]
-		},
+    {
+      "type": "Actor",
+      "name": "tile02",
+      "tag": "Ground",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/tileset.png",
+          "source": [
+            16,
+            0,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "restitution": 0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "coin",
+      "prototype": true,
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "spin",
+          "animations": [
+            {
+              "name": "spin",
+              "fps": 8,
+              "numColumns": 8,
+              "numRows": 1,
+              "startFrame": 1,
+              "endFrame": 8,
+              "textureName": "textures/props/coin.png"
+            }
+          ]
+        }
+      ]
+    },
 		{
 			"type": "Actor",
 			"name": "World",
 			"transform": {
 				"position": [
-					32,
-					32
+					16,
+					16
 				]
 			},
 			"components": [
 				{
 					"type": "TilemapComponent",
-					"numColumns": 13,
-					"numRows": 10,
-					"tileSize": [ 64, 64 ],
-					"tileNames": [ "", "tile01", "tile02" ],
+					"numColumns": 25,
+					"numRows": 20,
+					"tileSize": [ 32, 32 ],
+					"tileNames": [ "", "tile01", "tile02", "coin" ],
 					"tiles": [
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2,
-						0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-						1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0,
+						0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0,
+						2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2,
+						1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 					]
 				}
 			]

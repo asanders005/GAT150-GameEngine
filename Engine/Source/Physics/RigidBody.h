@@ -5,20 +5,29 @@
 class RigidBody
 {
 public:
+	enum class Shape
+	{
+		BOX,
+		CAPSULE,
+		CIRCLE
+	};
+
 	struct def_t
 	{
 		// body
 		float gravityScale = 1;
-		float damping = 0;
-		float angularDamping = 0;
+		float damping = 0.2f;
+		float angularDamping = 0.2f;
 		bool  constrainAngle = false;
 		bool  isDynamic = true;
 
 		// shape
-		float friction = 0.0f;
+		float friction = 0.3f;
 		float restitution = 0.5f;
 		float density = 1.0f;
 		bool isSensor = false;
+
+		Shape shape = Shape::BOX;
 
 		class Actor* actor{ nullptr };
 	};

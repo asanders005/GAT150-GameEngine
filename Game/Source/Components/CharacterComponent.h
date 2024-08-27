@@ -19,5 +19,8 @@ public:
 	float speed = 0;
 	float jumpSpeed = 0;
 
-	bool onGround = true;
+	int groundCount = 0;
+
+	class PhysicsComponent* physics{ nullptr };
+	class TextureAnimationComponent* animation{ nullptr };
 };

@@ -7,46 +7,43 @@ void CharacterComponent::Initialize()
 {
 	owner->OnCollisionEnter = std::bind(&CharacterComponent::OnCollisionEnter, this, std::placeholders::_1);
 	owner->OnCollisionExit = std::bind(&CharacterComponent::OnCollisionExit, this, std::placeholders::_1);
+
+	physics = owner->GetComponent<PhysicsComponent>();
+	animation = owner->GetComponent<TextureAnimationComponent>();
 }
 
 void CharacterComponent::Update(float dt)
 {
+	bool onGround = groundCount > 0;
+
 	float xDir = 0;
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A)) xDir -= 1;
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) xDir += 1;
+
+	float modifier = (onGround) ? 1 : 0.8f;
+	physics->ApplyForce(Vector2{ xDir, 0.0f } * speed * modifier);
 	if (xDir != 0) 
 	{
-		owner->GetComponent<TextureAnimationComponent>("playerIdleAnim")->Deactivate();
-		owner->GetComponent<TextureAnimationComponent>("playerWalkAnim")->Activate();
+		animation->SetAnimation("walk");
+		animation->hflip = (xDir < 0) ? true : false;
 	}
-	else
-	{
-		owner->GetComponent<TextureAnimationComponent>("playerWalkAnim")->Deactivate();
-		owner->GetComponent<TextureAnimationComponent>("playerIdleAnim")->Activate();
-	}
-	owner->GetComponent<PhysicsComponent>()->ApplyForce(Vector2{ xDir, 0.0f } * speed);
+	else animation->SetAnimation("idle");
 
 	if (owner->scene->engine->GetInput().GetKeyPressed(SDL_SCANCODE_SPACE) && onGround)
 	{
-		owner->GetComponent<PhysicsComponent>()->SetVelocity(Vector2{ 0, -1 } * jumpSpeed);
+		physics->SetVelocity(Vector2{ physics->velocity.x, -1.0f * jumpSpeed });
 	}
 }
 
 void CharacterComponent::OnCollisionEnter(Actor* actor)
 {
-	if (actor->tag == "Ground")
-	{
-		onGround = true;
-	}
+	if (actor->tag == "Ground")	groundCount++;
 	if (actor->tag == "enemy") EVENT_NOTIFY(PlayerDead);
 }
 
 void CharacterComponent::OnCollisionExit(Actor* actor)
 {
-	if (actor->tag == "Ground")
-	{
-		onGround = false;
-	}
+	if (actor->tag == "Ground")	groundCount--;
 }
 
 void CharacterComponent::Read(const json_t& value)

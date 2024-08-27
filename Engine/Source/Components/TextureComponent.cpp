@@ -30,14 +30,12 @@ void TextureComponent::Update(float dt)
 void TextureComponent::Draw(Renderer& renderer)
 {
 	Transform transform = owner->transform;
-	if (isActive) renderer.DrawTexture(texture, transform, source);
+	if (isActive) renderer.DrawTexture(texture, transform, source, hflip);
 }
 
 void TextureComponent::Read(const json_t& value)
 {
-	Object::Read(value);
-
-	READ_DATA_REQUIRED(value, textureName);
+	READ_DATA(value, textureName);
 	READ_DATA(value, source);
 }
 
