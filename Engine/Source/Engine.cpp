@@ -14,7 +14,7 @@ bool Engine::Initialize()
 	m_particleSystem = std::make_unique<ParticleSystem>();
 
 	m_renderer->Initialize();
-	m_renderer->CreateWindow("Game", 800, 600);
+	m_renderer->CreateWindow("Game", 1200, 800);
 	m_input->Initialize();
 	m_audio->Initialize();
 	m_physics->Initialize();

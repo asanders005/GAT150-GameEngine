@@ -6,11 +6,11 @@
 class FungalLeap : public Game, Observer
 {
 public:
-	enum eState
+	enum class eState
 	{
 		TITLE,
 		GAME_START,
-		LOAD_LEVEL,
+		LEVEL_START,
 		GAME,
 		PAUSE,
 		PLAYER_DEAD,
@@ -31,8 +31,14 @@ public:
 	void OnAddPoints(const Event& event);
 
 private:
-	std::unique_ptr<class Scene> m_scene;
+	eState m_state{ eState::TITLE };
+	int m_level = 0;
 
-	std::string sceneNames[1] = { "Scenes/scene.json" };
-	std::string tilemapNames[1] = { "Scenes/tilemap.json" };
+	std::unique_ptr<class Scene> m_scene;
+	class Actor* m_spawnpoint{ nullptr };
+
+	float m_deathTimer = 0;
+
+	std::string sceneNames[1] = { "Scenes/prototypeScene.json" };
+	std::string tilemapNames[1] = { "Scenes/prototypeTilemap.json" };
 };

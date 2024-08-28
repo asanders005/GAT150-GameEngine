@@ -163,10 +163,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Components\CharacterComponent.cpp" />
+    <ClCompile Include="Source\Components\EnemyComponent.cpp" />
     <ClCompile Include="Source\Components\PlayerComponent.cpp" />
     <ClCompile Include="Source\Components\RocketComponent.cpp" />
-    <ClCompile Include="Source\ExampleGame.cpp" />
+    <ClCompile Include="Source\FungalLeap.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,16 +175,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\Scenes\scene.json" />
+    <Text Include="..\Build\Assets\Scenes\initialize.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Components\CharacterComponent.h" />
+    <ClInclude Include="Source\Components\EnemyComponent.h" />
     <ClInclude Include="Source\Components\PlayerComponent.h" />
     <ClInclude Include="Source\Components\RocketComponent.h" />
-    <ClInclude Include="Source\ExampleGame.h" />
+    <ClInclude Include="Source\FungalLeap.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\Assets\Scenes\tilemap.json" />
+    <None Include="..\Build\Assets\Scenes\prototypeScene.json" />
+    <None Include="..\Build\Assets\Scenes\prototypeTilemap.json" />
+    <None Include="..\Build\Assets\Scenes\title.json" />
     <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

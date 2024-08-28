@@ -99,5 +99,5 @@ void Scene::Read(const json_t& value)
 
 void Scene::Write(json_t& value)
 {
-
+	//
 }

@@ -1,0 +1,44 @@
+{
+  "actors": [
+    {
+      "name": "enemy",
+      "tag": "enemy",
+      "transform": {
+        "position": [ 384, 624 ],
+        "rotation": 0,
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "walk",
+          "animations": [
+            {
+              "name": "walk",
+              "fps": 10,
+              "numColumns": 24,
+              "numRows": 1,
+              "startFrame": 5,
+              "endFrame": 10,
+              "textureName": "Textures/Characters/Enemies/enemy.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.5,
+          "gravityScale": 1,
+          "friction": 0.2,
+          "density": 1,
+          "constrainAngle": true,
+          "shape": "capsule",
+          "size": [ 16, 16 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 250
+        }
+      ]
+    }
+  ]
+}

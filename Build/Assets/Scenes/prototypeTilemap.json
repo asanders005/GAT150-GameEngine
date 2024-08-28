@@ -1,0 +1,255 @@
+{
+	"actors": [
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG1.png"
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG2.png"
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG3.png"
+        }
+      ]
+    },
+    {
+      "name": "spawn",
+      "prototype": true
+    },
+    {
+      "name": "enemyFlip",
+      "tag": "enemyController",
+      "prototype": true,
+      "components": [
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "isSensor": true,
+          "shape": "circle",
+          "size": [ 32, 32 ]
+        }
+      ]
+    },
+    {
+      "name": "tile01",
+      "tag": "Ground",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/tileset.png",
+          "source": [
+            16,
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "restitution": 0
+        }
+      ]
+    },
+    {
+      "name": "tile02",
+      "tag": "Ground",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/tileset.png",
+          "source": [
+            16,
+            0,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false
+        }
+      ]
+    },
+    {
+      "name": "mushroom01",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/MushroomTileset.png",
+          "source": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "restitution": 0.8
+        }
+      ]
+    },
+    {
+      "name": "mushroom02",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/MushroomTileset.png",
+          "source": [
+            16,
+            0,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "restitution": 0.8
+        }
+      ]
+    },
+    {
+      "name": "mushroom03",
+      "prototype": true,
+      "transform": {
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "textures/tilesets/MushroomTileset.png",
+          "source": [
+            32,
+            0,
+            16,
+            16
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "restitution": 0.8
+        }
+      ]
+    },
+    {
+      "name": "coin",
+      "tag": "pickup",
+      "prototype": true,
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "spin",
+          "animations": [
+            {
+              "name": "spin",
+              "fps": 8,
+              "numColumns": 8,
+              "numRows": 1,
+              "startFrame": 1,
+              "endFrame": 8,
+              "textureName": "textures/props/coin.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "isSensor": true,
+          "shape": "circle"
+        }
+      ]
+    },
+		{
+			"name": "World",
+			"transform": {
+				"position": [
+					16,
+					16
+				]
+			},
+			"components": [
+				{
+					"type": "TilemapComponent",
+					"numColumns": 38,
+					"numRows": 25,
+					"tileSize": [ 32, 32 ],
+					"tileNames": [ "", "tile01", "tile02", "mushroom01", "mushroom02", "mushroom03", "coin", "spawn", "enemyFlip" ],
+					"tiles": [
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						3, 4, 5, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2,
+						2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 3, 4, 4, 5, 0, 2, 2, 2, 1, 1, 1,
+						1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1
+					]
+				}
+			]
+		}
+	]
+}

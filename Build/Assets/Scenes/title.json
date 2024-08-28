@@ -1,0 +1,71 @@
+{
+  "actors": [
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG1.png"
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG2.png"
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG3.png"
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 300 ]
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "FUNGAL LEAP",
+          "fontName": "Fonts/MonsterFriendFore.ttf",
+          "fontSize": 48,
+          "color": [ 1, 1, 1, 1 ]
+        }
+      ]
+    },
+    {
+      "transform": {
+        "position": [ 600, 500 ]
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "press space to start",
+          "fontName": "Fonts/MonsterFriendFore.ttf",
+          "fontSize": 24,
+          "color": [ 1, 1, 1, 1 ]
+        }
+      ]
+    }
+  ]
+}

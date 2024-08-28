@@ -1,13 +1,11 @@
 #pragma once
 #include "Components/Component.h"
 
-#include <map>
-
-class CharacterComponent : public Component
+class EnemyComponent : public Component
 {
 public:
-	CLASS_DECLARATION(CharacterComponent)
-	CLASS_PROTOTYPE(CharacterComponent)
+	CLASS_DECLARATION(EnemyComponent)
+	CLASS_PROTOTYPE(EnemyComponent)
 
 	void Initialize() override;
 	void Update(float dt) override;
@@ -17,9 +15,7 @@ public:
 
 public:
 	float speed = 0;
-	float jumpSpeed = 0;
-
-	int groundCount = 0;
+	int xDir = 1;
 
 	class PhysicsComponent* physics{ nullptr };
 	class TextureAnimationComponent* animation{ nullptr };
