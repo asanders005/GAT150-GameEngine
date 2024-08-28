@@ -1,0 +1,66 @@
+{
+  "actors": [
+    {
+      "name": "lifeHead",
+      "transform": {
+        "position": [ 24, 24 ],
+        "scale": 1
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/Characters/Player/player_idle.png",
+          "source": [ 0, 0, 48, 48 ]
+        }
+      ]
+    },
+    {
+      "name": "lifeText",
+      "transform": {
+        "position": [ 76, 28 ],
+        "scale": 0.5
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "x",
+          "fontName": "Fonts/MonsterFriendFore.ttf",
+          "fontSize": 12,
+          "color": [ 0.65, 0.6, 0.55, 1 ]
+        }
+      ]
+    },
+    {
+      "name": "scoreText",
+      "transform": {
+        "position": [ 1150, 28 ],
+        "scale": 0.5
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "0",
+          "fontName": "Fonts/MonsterFriendFore.ttf",
+          "fontSize": 12,
+          "color": [ 0.65, 0.6, 0.55, 1 ]
+        }
+      ]
+    },
+    {
+      "name": "pauseText",
+      "isActive": false,
+      "transform": {
+        "position": [ 600, 300 ]
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "PAUSED",
+          "fontName": "Fonts/MonsterFriendFore.ttf",
+          "fontSize": 48,
+          "color": [ 0.85, 0.8, 0.75, 1 ]
+        }
+      ]
+    }
+  ]
+}

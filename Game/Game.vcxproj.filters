@@ -65,5 +65,11 @@
     <None Include="..\Build\Assets\Scenes\Level1.json">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\Level2.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\UI.json">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

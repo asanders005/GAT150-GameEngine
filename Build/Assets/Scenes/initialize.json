@@ -92,39 +92,6 @@
           "speed": 100
         }
       ]
-    },
-    {
-      "name": "lifeHead",
-      "isActive": false,
-      "isPersistent": true,
-      "transform": {
-        "position": [ 16, 16 ],
-        "scale": 0.5
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/Characters/Player/player_idle.png",
-          "source": [ 0, 0, 32, 32 ]
-        }
-      ]
-    },
-    {
-      "name": "pauseText",
-      "isActive": false,
-      "isPersistent": true,
-      "transform": {
-        "position": [ 600, 300 ]
-      },
-      "components": [
-        {
-          "type": "TextComponent",
-          "text": "PAUSED",
-          "fontName": "Fonts/MonsterFriendFore.ttf",
-          "fontSize": 48,
-          "color": [ 1, 1, 1, 1 ]
-        }
-      ]
     }
   ]
 }

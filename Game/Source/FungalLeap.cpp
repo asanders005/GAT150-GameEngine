@@ -1,5 +1,6 @@
 #include "FungalLeap.h"
 #include "Engine.h"
+
 #include <functional>
 
 bool FungalLeap::Initialize()
@@ -39,10 +40,10 @@ void FungalLeap::Update(float dt)
 		}
 		break;
 	case eState::GAME_START:
-		m_level = 1;
+		m_level = 2;
 		m_lives = 3;
-
-		m_scene->GetActor("lifeHead")->Activate();
+		m_score = 0;
+		m_coinCount = 0;
 
 		m_state = eState::LEVEL_START;
 		break;
@@ -102,9 +103,12 @@ bool FungalLeap::LoadScene(int i)
 
 	rapidjson::Document document;
 	if (Json::Load(tilemapNames[i], document)) m_scene->Read(document);
-	if (Json::Load(sceneNames[i], document)) m_scene->Read(document);
+	if (Json::Load("Scenes/UI.json", document)) m_scene->Read(document);
 
 	m_scene->Initialize();
+
+	m_scene->GetActor("lifeText")->GetComponent<TextComponent>()->SetText("x" + std::to_string(m_lives));
+	m_scene->GetActor("scoreText")->GetComponent<TextComponent>()->SetText(std::to_string(m_score));
 
 	std::vector<Actor*> enemySpawns = m_scene->GetActors("enemySpawn");
 
@@ -139,13 +143,20 @@ void FungalLeap::OnPlayerDead(const Event& event)
 void FungalLeap::OnAddPoints(const Event& event)
 {
 	m_score += std::get<int>(event.data);
-	std::cout << m_score << std::endl;
+	m_scene->GetActor("scoreText")->GetComponent<TextComponent>()->SetText(std::to_string(m_score));
+	m_coinCount++;
+	if (m_coinCount >= 50)
+	{
+		m_coinCount -= 50;
+		m_lives++;
+	}
 }
 
 void FungalLeap::OnLevelComplete(const Event& event)
 {
 	m_score += 1000;
 	std::cout << "Level Complete\n";
+	m_lives++;
 	m_level++;
 	m_state = eState::LEVEL_START;
 }

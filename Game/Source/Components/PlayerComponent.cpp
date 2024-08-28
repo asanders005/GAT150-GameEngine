@@ -20,7 +20,7 @@ void PlayerComponent::Update(float dt)
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A)) xDir -= 1;
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) xDir += 1;
 
-	float modifier = (onGround) ? 1 : 0.4f;
+	float modifier = (onGround) ? 1 : 0.45f;
 	physics->ApplyForce(Vector2{ xDir, 0.0f } * speed * modifier);
 	if (xDir != 0) 
 	{
@@ -52,7 +52,7 @@ void PlayerComponent::OnCollisionEnter(Actor* actor)
 	}
 	if (IsEqualIgnoreCase(actor->tag, "pickup"))
 	{
-		if (IsEqualIgnoreCase(actor->name, "coin") && !actor->isDestroyed) EVENT_NOTIFY_DATA(AddPoints, 50);
+		if (IsEqualIgnoreCase(actor->name, "coin") && !actor->isDestroyed) EVENT_NOTIFY_DATA(AddPoints, 100);
 		actor->isDestroyed = true;
 	}
 	if (IsEqualIgnoreCase(actor->tag, "goal"))

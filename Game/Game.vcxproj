@@ -185,9 +185,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\Scenes\Level1.json" />
+    <None Include="..\Build\Assets\Scenes\Level2.json" />
     <None Include="..\Build\Assets\Scenes\prototypeScene.json" />
     <None Include="..\Build\Assets\Scenes\prototypeTilemap.json" />
     <None Include="..\Build\Assets\Scenes\title.json" />
+    <None Include="..\Build\Assets\Scenes\UI.json" />
     <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
