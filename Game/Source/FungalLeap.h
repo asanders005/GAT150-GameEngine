@@ -29,6 +29,7 @@ public:
 	// events
 	void OnPlayerDead(const Event& event);
 	void OnAddPoints(const Event& event);
+	void OnLevelComplete(const Event& event);
 
 private:
 	eState m_state{ eState::TITLE };
@@ -36,9 +37,20 @@ private:
 
 	std::unique_ptr<class Scene> m_scene;
 	class Actor* m_spawnpoint{ nullptr };
+	std::unique_ptr<class Actor> m_pauseText;
 
 	float m_deathTimer = 0;
 
-	std::string sceneNames[1] = { "Scenes/prototypeScene.json" };
-	std::string tilemapNames[1] = { "Scenes/prototypeTilemap.json" };
+	std::string sceneNames[3]
+	{
+		"Scenes/prototypeScene.json",
+		"", 
+		"Scenes/prototypeScene.json"
+	};
+	std::string tilemapNames[3]
+	{ 
+		"Scenes/prototypeTilemap.json", 
+		"Scenes/Level1.json", 
+		"Scenes/prototypeTilemap.json"
+	};
 };

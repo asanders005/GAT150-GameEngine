@@ -43,4 +43,5 @@ public:
 public:
 	std::string name;
 	bool isActive = true;
+	bool isPersistent = false;
 };

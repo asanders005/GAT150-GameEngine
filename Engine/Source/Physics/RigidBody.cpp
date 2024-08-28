@@ -30,20 +30,20 @@ RigidBody::RigidBody(const Transform& transform, const Vector2& size, const def_
 	{
 	case Shape::BOX:
 	{
-		/*b2Polygon box = b2MakeBox(hsize.x, hsize.y);
-		b2CreatePolygonShape(m_bodyId, &shapeDef, &box);*/
-		b2Vec2 vs[4] =
-		{
-			{ -hsize.x, -hsize.y },
-			{  hsize.x, -hsize.y },
-			{  hsize.x,  hsize.y },
-			{ -hsize.x,  hsize.y },
-		};
-		b2ChainDef chainDef = b2DefaultChainDef();
-		chainDef.points = vs;
-		chainDef.count = 4;
-		chainDef.isLoop = true;
-		b2CreateChain(m_bodyId, &chainDef);
+		b2Polygon box = b2MakeBox(hsize.x, hsize.y);
+		b2CreatePolygonShape(m_bodyId, &shapeDef, &box);
+		//b2Vec2 vs[4] =
+		//{
+		//	{ -hsize.x, -hsize.y },
+		//	{  hsize.x, -hsize.y },
+		//	{  hsize.x,  hsize.y },
+		//	{ -hsize.x,  hsize.y },
+		//};
+		//b2ChainDef chainDef = b2DefaultChainDef();
+		//chainDef.points = vs;
+		//chainDef.count = 4;
+		//chainDef.isLoop = true;
+		//b2CreateChain(m_bodyId, &chainDef);
 	}
 		break;
 	case Shape::CAPSULE:

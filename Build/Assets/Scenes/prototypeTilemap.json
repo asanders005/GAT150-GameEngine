@@ -1,45 +1,6 @@
 {
 	"actors": [
     {
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG1.png"
-        }
-      ]
-    },
-    {
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG2.png"
-        }
-      ]
-    },
-    {
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG3.png"
-        }
-      ]
-    },
-    {
       "name": "spawn",
       "prototype": true
     },
@@ -54,6 +15,23 @@
           "isSensor": true,
           "shape": "circle",
           "size": [ 32, 32 ]
+        }
+      ]
+    },
+    {
+      "name": "goal",
+      "tag": "goal",
+      "prototype": true,
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/Props/Mushroom_4.png"
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "isDynamic": false,
+          "isSensor": true,
+          "shape": "circle"
         }
       ]
     },
@@ -102,12 +80,14 @@
         },
         {
           "type": "Box2DPhysicsComponent",
-          "isDynamic": false
+          "isDynamic": false,
+          "restitution": 0
         }
       ]
     },
     {
       "name": "mushroom01",
+      "tag": "ground",
       "prototype": true,
       "transform": {
         "scale": 2
@@ -126,12 +106,13 @@
         {
           "type": "Box2DPhysicsComponent",
           "isDynamic": false,
-          "restitution": 0.8
+          "restitution": 1.5
         }
       ]
     },
     {
       "name": "mushroom02",
+      "tag": "ground",
       "prototype": true,
       "transform": {
         "scale": 2
@@ -150,12 +131,13 @@
         {
           "type": "Box2DPhysicsComponent",
           "isDynamic": false,
-          "restitution": 0.8
+          "restitution": 1.5
         }
       ]
     },
     {
       "name": "mushroom03",
+      "tag": "ground",
       "prototype": true,
       "transform": {
         "scale": 2
@@ -174,7 +156,7 @@
         {
           "type": "Box2DPhysicsComponent",
           "isDynamic": false,
-          "restitution": 0.8
+          "restitution": 1.5
         }
       ]
     },
@@ -220,7 +202,7 @@
 					"numColumns": 38,
 					"numRows": 25,
 					"tileSize": [ 32, 32 ],
-					"tileNames": [ "", "tile01", "tile02", "mushroom01", "mushroom02", "mushroom03", "coin", "spawn", "enemyFlip" ],
+					"tileNames": [ "", "tile01", "tile02", "mushroom01", "mushroom02", "mushroom03", "coin", "spawn", "goal", "enemyFlip" ],
 					"tiles": [
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -229,7 +211,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -241,7 +223,7 @@
 						0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						3, 4, 5, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2,

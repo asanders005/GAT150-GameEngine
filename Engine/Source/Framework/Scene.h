@@ -26,7 +26,7 @@ public:
 	void AddActor(std::unique_ptr<Actor> actor, bool initialize = false);
 	
 
-	void RemoveAll();
+	void RemoveAll(bool force = false);
 	void RemoveAll(std::string tag);
 
 	template<typename T>

@@ -184,6 +184,7 @@
     <ClInclude Include="Source\FungalLeap.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Assets\Scenes\Level1.json" />
     <None Include="..\Build\Assets\Scenes\prototypeScene.json" />
     <None Include="..\Build\Assets\Scenes\prototypeTilemap.json" />
     <None Include="..\Build\Assets\Scenes\title.json" />

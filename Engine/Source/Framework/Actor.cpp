@@ -10,6 +10,7 @@ Actor::Actor(const Actor& other)
 	tag = other.tag;
 	lifespan = other.lifespan;
 	isDestroyed = false;
+	isPersistent = other.isPersistent;
 	transform = other.transform;
 	scene = other.scene;
 

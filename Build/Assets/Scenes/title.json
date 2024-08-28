@@ -1,6 +1,7 @@
 {
   "actors": [
     {
+      "isPersistent": true,
       "transform": {
         "position": [ 600, 400 ],
         "rotation": 0,
@@ -14,6 +15,7 @@
       ]
     },
     {
+      "isPersistent": true,
       "transform": {
         "position": [ 600, 400 ],
         "rotation": 0,
@@ -27,6 +29,7 @@
       ]
     },
     {
+      "isPersistent": true,
       "transform": {
         "position": [ 600, 400 ],
         "rotation": 0,

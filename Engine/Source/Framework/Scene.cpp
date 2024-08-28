@@ -23,26 +23,6 @@ void Scene::Update(float dt)
 	{
 		if (actor->isActive) actor->Update(dt);
 	}
-
-	/*for (auto& actor1 : actors)
-	{
-		auto collision1 = actor1->GetComponent<CollisionComponent>();
-		if (!collision1) continue;
-
-		for (auto& actor2 : actors)
-		{
-			if (actor1 == actor2) continue;
-
-			auto collision2 = actor2->GetComponent<CollisionComponent>();
-			if (!collision2) continue;
-			
-			if (collision1->CheckCollision(collision2))
-			{
-				if (actor1->OnCollisionEnter) actor1->OnCollisionEnter(actor2.get());
-				if (actor2->OnCollisionEnter) actor2->OnCollisionEnter(actor1.get());
-			}
-		}
-	} */
 	
 	std::erase_if(actors, [](auto& actor) { return actor->isDestroyed; });
 }
@@ -62,14 +42,14 @@ void Scene::AddActor(std::unique_ptr<Actor> actor, bool initialize)
 	actors.push_back(std::move(actor));
 }
 
-void Scene::RemoveAll()
+void Scene::RemoveAll(bool force)
 {
-	actors.clear();
+	std::erase_if(actors, [force](auto& actor) { return (force || !actor->isPersistent); });
 }
 
 void Scene::RemoveAll(std::string tag)
 {
-	actors.erase(std::remove_if(actors.begin(), actors.end(), [&](auto& actor) { return actor->tag == tag; }), actors.end());
+	std::erase_if(actors, [tag](auto& actor) { return actor->tag == tag; });
 }
 
 void Scene::Read(const json_t& value)
