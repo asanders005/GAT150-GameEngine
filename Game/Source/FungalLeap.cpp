@@ -42,7 +42,7 @@ void FungalLeap::Update(float dt)
 		m_level = 1;
 		m_lives = 3;
 
-		m_scene->GetActor<Actor>("lifeHead")->Activate();
+		m_scene->GetActor("lifeHead")->Activate();
 
 		m_state = eState::LEVEL_START;
 		break;
@@ -52,14 +52,14 @@ void FungalLeap::Update(float dt)
 	case eState::GAME:
 		if (m_engine->GetInput().GetKeyPressed(SDL_SCANCODE_ESCAPE))
 		{
-			m_scene->GetActor<Actor>("pauseText")->Activate();
+			m_scene->GetActor("pauseText")->Activate();
 			m_state = eState::PAUSE;
 		}
 		break;
 	case eState::PAUSE:
 		if (m_engine->GetInput().GetKeyPressed(SDL_SCANCODE_ESCAPE))
 		{
-			m_scene->GetActor<Actor>("pauseText")->Deactivate();
+			m_scene->GetActor("pauseText")->Deactivate();
 			m_state = eState::GAME;
 		}
 		break;
@@ -106,7 +106,17 @@ bool FungalLeap::LoadScene(int i)
 
 	m_scene->Initialize();
 
-	m_spawnpoint = m_scene->GetActor<Actor>("spawn");
+	std::vector<Actor*> enemySpawns = m_scene->GetActors("enemySpawn");
+
+	for (auto spawn : enemySpawns)
+	{
+		auto enemy = Factory::Instance().Create<Actor>("enemy");
+		enemy->transform.position = spawn->transform.position;
+
+		m_scene->AddActor(std::move(enemy), true);
+	}
+
+	m_spawnpoint = m_scene->GetActor("spawn");
 	auto player = Factory::Instance().Create<Actor>("player");
 
 	if (m_spawnpoint) player->transform.position = m_spawnpoint->transform.position;

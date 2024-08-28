@@ -2,6 +2,7 @@
 #include "Object.h"
 #include <list>
 #include <string>
+#include <vector>
 #include <memory>
 
 class Renderer;
@@ -29,11 +30,8 @@ public:
 	void RemoveAll(bool force = false);
 	void RemoveAll(std::string tag);
 
-	template<typename T>
-	T* GetActor();
-
-	template<typename T>
-	T* GetActor(const std::string& name);
+	Actor* GetActor(const std::string& name);
+	std::vector<Actor*> GetActors(const std::string& name);
 
 public:
 	Engine* engine{ nullptr };
@@ -42,27 +40,3 @@ public:
 private:
 	std::list<std::unique_ptr<Actor>> actors;
 };
-
-template<typename T>
-T* Scene::GetActor()
-{
-	for (auto& actor : actors)
-	{
-		T* result = dynamic_cast<T*>(actor.get());
-		if (result) return result;
-	}
-
-	return nullptr;
-}
-
-template<typename T>
-inline T* Scene::GetActor(const std::string& name)
-{
-	for (auto& actor : actors)
-	{
-		T* result = dynamic_cast<T*>(actor.get());
-		if (result && IsEqualIgnoreCase(result->name, name)) return result;
-	}
-
-	return nullptr;
-}

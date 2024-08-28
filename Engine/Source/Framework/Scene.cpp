@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "Core/Factory.h"
 #include "Core/EAssert.h"
+#include "Core/EString.h"
 #include "Components/CollisionComponent.h"
 
 Scene::Scene(const Scene& other)
@@ -40,6 +41,29 @@ void Scene::AddActor(std::unique_ptr<Actor> actor, bool initialize)
 	actor->scene = this;
 	if (initialize) actor->Initialize();
 	actors.push_back(std::move(actor));
+}
+
+Actor* Scene::GetActor(const std::string& name)
+{
+	for (auto& actor : actors)
+	{
+		auto result = actor.get();
+		if (result && IsEqualIgnoreCase(result->name, name)) return result;
+	}
+
+	return nullptr;
+}
+
+std::vector<Actor*> Scene::GetActors(const std::string& name)
+{
+	std::vector<Actor*> result;
+	for (auto& actor : actors)
+	{
+		auto a = actor.get();
+		if (a && IsEqualIgnoreCase(a->name, name)) result.push_back(a);
+	}
+
+	return result;
 }
 
 void Scene::RemoveAll(bool force)
