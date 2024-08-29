@@ -175,20 +175,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\Scenes\initialize.json" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Source\Components\EnemyComponent.h" />
     <ClInclude Include="Source\Components\PlayerComponent.h" />
     <ClInclude Include="Source\Components\RocketComponent.h" />
     <ClInclude Include="Source\FungalLeap.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Assets\Scenes\GameOver.json" />
+    <None Include="..\Build\Assets\Scenes\GameWin.json" />
+    <None Include="..\Build\Assets\Scenes\Initialize.json" />
     <None Include="..\Build\Assets\Scenes\Level1.json" />
     <None Include="..\Build\Assets\Scenes\Level2.json" />
+    <None Include="..\Build\Assets\Scenes\Level3.json" />
     <None Include="..\Build\Assets\Scenes\prototypeScene.json" />
     <None Include="..\Build\Assets\Scenes\prototypeTilemap.json" />
-    <None Include="..\Build\Assets\Scenes\title.json" />
+    <None Include="..\Build\Assets\Scenes\Title.json" />
     <None Include="..\Build\Assets\Scenes\UI.json" />
     <None Include="cpp.hint" />
   </ItemGroup>

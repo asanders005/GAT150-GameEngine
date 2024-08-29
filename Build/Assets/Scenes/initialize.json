@@ -1,6 +1,81 @@
 {
   "actors": [
     {
+      "isPersistent": true,
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG1.png"
+        }
+      ]
+    },
+    {
+      "isPersistent": true,
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG2.png"
+        }
+      ]
+    },
+    {
+      "isPersistent": true,
+      "transform": {
+        "position": [ 600, 400 ],
+        "rotation": 0,
+        "scale": 4.25
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/tilesets/BG3.png"
+        }
+      ]
+    },
+    {
+      "name": "audioController",
+      "isPersistent": true,
+      "components": [
+        {
+          "type": "AudioComponent",
+          "name": "BGM",
+          "soundName": "Audio/BGM.wav",
+          "loop": true,
+          "volume": 0.5
+        },
+        {
+          "type": "AudioComponent",
+          "name": "Coin",
+          "soundName": "Audio/Coin.wav"
+        },
+        {
+          "type": "AudioComponent",
+          "name": "Goal",
+          "soundName": "Audio/Goal.wav"
+        },
+        {
+          "type": "AudioComponent",
+          "name": "GameOver",
+          "soundName": "Audio/GameOver.wav"
+        },
+        {
+          "type": "AudioComponent",
+          "name": "GameWin",
+          "soundName": "Audio/GameWin.wav"
+        }
+      ]
+    },
+    {
       "name": "player",
       "tag": "player",
       "prototype": true,
@@ -49,6 +124,17 @@
           "type": "PlayerComponent",
           "speed": 150,
           "jumpSpeed": 400
+        },
+        {
+          "type": "AudioComponent",
+          "name": "Jump",
+          "soundName": "Audio/Jump.wav",
+          "volume": 0.4
+        },
+        {
+          "type": "AudioComponent",
+          "name": "PlayerHurt",
+          "soundName": "Audio/PlayerHurt.wav"
         }
       ]
     },
@@ -80,7 +166,7 @@
         {
           "type": "Box2DPhysicsComponent",
           "damping": 0.5,
-          "gravityScale": 1,
+          "gravityScale": 4,
           "friction": 0.2,
           "density": 1,
           "constrainAngle": true,

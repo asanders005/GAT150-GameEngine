@@ -8,6 +8,7 @@ FACTORY_REGISTER(AudioComponent);
 AudioComponent::AudioComponent(const AudioComponent& other)
 {
 	soundName = other.soundName;
+	name = other.name;
 	playOnStart = other.playOnStart;
 	loop = other.loop;
 	volume = other.volume;
@@ -76,6 +77,7 @@ void AudioComponent::SetPitch(float pitch)
 
 void AudioComponent::Read(const json_t& value)
 {
+	READ_DATA(value, name);
 	READ_DATA(value, soundName);
 	READ_DATA(value, playOnStart);
 	READ_DATA(value, loop);

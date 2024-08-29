@@ -9,10 +9,12 @@ bool FungalLeap::Initialize()
 	rapidjson::Document document;
 	Json::Load("Scenes/Initialize.json", document);
 	m_scene->Read(document);
-	Json::Load("Scenes/title.json", document);
+	Json::Load("Scenes/Title.json", document);
 	m_scene->Read(document);
 
 	m_scene->Initialize();
+
+	m_audioController = m_scene->GetActor("audioController");
 
 	/*m_pauseText = Factory::Instance().Create<Actor>("pauseText");
 	m_pauseText->Initialize();*/
@@ -40,10 +42,11 @@ void FungalLeap::Update(float dt)
 		}
 		break;
 	case eState::GAME_START:
-		m_level = 2;
+		m_level = 1;
 		m_lives = 3;
 		m_score = 0;
-		m_coinCount = 0;
+
+		m_audioController->GetComponent<AudioComponent>("BGM")->Play();
 
 		m_state = eState::LEVEL_START;
 		break;
@@ -68,18 +71,52 @@ void FungalLeap::Update(float dt)
 		m_deathTimer -= dt;
 		if (m_deathTimer <= 0)
 		{
-			m_state = (m_lives < 0) ? eState::GAME_OVER : eState::LEVEL_START;
+			if (m_lives < 0)
+			{
+				m_audioController->GetComponent<AudioComponent>("BGM")->Stop();
+				m_audioController->GetComponent<AudioComponent>("GameOver")->Play();
+
+				m_scene->RemoveAll();
+				rapidjson::Document document;
+				Json::Load("Scenes/GameOver.json", document);
+				m_scene->Read(document);
+				m_scene->Initialize();
+
+				m_deathTimer = 0.5f;
+				m_state = eState::GAME_OVER;
+			}  
+			else m_state = eState::LEVEL_START;
 		}
 		break;
 	case eState::GAME_OVER:
-		m_scene->RemoveAll();
+		m_deathTimer -= dt;
+		if (m_deathTimer <= 0)
+		{
+			m_deathTimer = 0.5f;
 
-		rapidjson::Document document;
-		Json::Load("Scenes/title.json", document);
-		m_scene->Read(document);
+			if (m_scene->GetActor("gameOverText")->isActive)
+			{
+				m_scene->GetActor("gameOverText")->Deactivate();
+				m_scene->GetActor("restartText")->Deactivate();
+			}
+			else
+			{
+				m_scene->GetActor("gameOverText")->Activate();
+				m_scene->GetActor("restartText")->Activate();
+			}
+		}
 
-		m_scene->Initialize();
-		m_state = eState::TITLE;
+		if (m_engine->GetInput().GetKeyPressed(SDL_SCANCODE_SPACE))
+		{
+			m_scene->RemoveAll();
+
+			rapidjson::Document document;
+			Json::Load("Scenes/title.json", document);
+			m_scene->Read(document);
+
+			m_scene->Initialize();
+			m_state = eState::TITLE;
+		}
 		break;
 	}
 	
@@ -142,21 +179,40 @@ void FungalLeap::OnPlayerDead(const Event& event)
 
 void FungalLeap::OnAddPoints(const Event& event)
 {
+	m_audioController->GetComponent<AudioComponent>("Coin")->Play();
+
 	m_score += std::get<int>(event.data);
-	m_scene->GetActor("scoreText")->GetComponent<TextComponent>()->SetText(std::to_string(m_score));
-	m_coinCount++;
-	if (m_coinCount >= 50)
+	if (m_score >= 5000)
 	{
-		m_coinCount -= 50;
+		m_score -= 5000;
 		m_lives++;
+		m_scene->GetActor("lifeText")->GetComponent<TextComponent>()->SetText("x" + std::to_string(m_lives));
 	}
+	m_scene->GetActor("scoreText")->GetComponent<TextComponent>()->SetText(std::to_string(m_score));
 }
 
 void FungalLeap::OnLevelComplete(const Event& event)
 {
-	m_score += 1000;
-	std::cout << "Level Complete\n";
 	m_lives++;
 	m_level++;
-	m_state = eState::LEVEL_START;
+
+	if (m_level == 4)
+	{
+		m_audioController->GetComponent<AudioComponent>("BGM")->Stop();
+		m_audioController->GetComponent<AudioComponent>("GameWin")->Play();
+
+		m_scene->RemoveAll();
+		rapidjson::Document document;
+		Json::Load("Scenes/GameWin.json", document);
+		m_scene->Read(document);
+		m_scene->Initialize();
+
+		m_deathTimer = 0.5f;
+		m_state = eState::GAME_OVER;
+	}
+	else
+	{
+		m_audioController->GetComponent<AudioComponent>("Goal")->Play();
+		m_state = eState::LEVEL_START;
+	}
 }

@@ -34,18 +34,20 @@ public:
 private:
 	eState m_state{ eState::TITLE };
 	int m_level = 0;
-	int m_coinCount = 0;
 
 	std::unique_ptr<class Scene> m_scene;
 	class Actor* m_spawnpoint{ nullptr };
+	class Actor* m_audioController{ nullptr };
 	std::unique_ptr<class Actor> m_pauseText;
 
 	float m_deathTimer = 0;
 
-	std::string tilemapNames[3]
+	std::string tilemapNames[5]
 	{ 
 		"Scenes/prototypeTilemap.json", 
 		"Scenes/Level1.json", 
-		"Scenes/Level2.json"
+		"Scenes/Level2.json",
+		"Scenes/Level3.json",
+		"Scenes/GameWin.json"
 	};
 };

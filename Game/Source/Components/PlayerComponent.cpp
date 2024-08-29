@@ -31,12 +31,15 @@ void PlayerComponent::Update(float dt)
 
 	if (owner->scene->engine->GetInput().GetKeyPressed(SDL_SCANCODE_SPACE) && onGround)
 	{
+		owner->GetComponent<AudioComponent>("Jump")->Play();
+
 		physics->SetVelocity(Vector2{ physics->velocity.x, -1.0f * jumpSpeed });
 	}
 
 	if (owner->transform.position.x < -32 || owner->transform.position.x > 1232 || owner->transform.position.y > 832)
 	{
-		std::cout << "Player Off Screen\n";
+		owner->GetComponent<AudioComponent>("PlayerHurt")->Play();
+
 		owner->isDestroyed = true;
 		EVENT_NOTIFY(PlayerDead);
 	}
@@ -47,6 +50,8 @@ void PlayerComponent::OnCollisionEnter(Actor* actor)
 	if (IsEqualIgnoreCase(actor->tag, "ground")) groundCount++;
 	if (IsEqualIgnoreCase(actor->tag, "enemy"))
 	{
+		owner->GetComponent<AudioComponent>("PlayerHurt")->Play();
+
 		owner->isDestroyed = true;
 		EVENT_NOTIFY(PlayerDead);
 	}

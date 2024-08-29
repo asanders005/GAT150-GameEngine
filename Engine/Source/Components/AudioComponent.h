@@ -29,6 +29,7 @@ public:
 	float pitch{ 1 };
 
 	std::string soundName;
+	std::string name;
 
 private:
 	std::unique_ptr<class AudioSource> m_audioSource;

@@ -1,48 +1,6 @@
 {
   "actors": [
     {
-      "isPersistent": true,
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG1.png"
-        }
-      ]
-    },
-    {
-      "isPersistent": true,
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG2.png"
-        }
-      ]
-    },
-    {
-      "isPersistent": true,
-      "transform": {
-        "position": [ 600, 400 ],
-        "rotation": 0,
-        "scale": 4.25
-      },
-      "components": [
-        {
-          "type": "TextureComponent",
-          "textureName": "Textures/tilesets/BG3.png"
-        }
-      ]
-    },
-    {
       "transform": {
         "position": [ 600, 300 ],
         "scale": 2

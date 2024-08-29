@@ -26,14 +26,14 @@
           "text": "x",
           "fontName": "Fonts/MonsterFriendFore.ttf",
           "fontSize": 12,
-          "color": [ 0.65, 0.6, 0.55, 1 ]
+          "color": [ 0, 0, 0, 1 ]
         }
       ]
     },
     {
       "name": "scoreText",
       "transform": {
-        "position": [ 1150, 28 ],
+        "position": [ 50, 68 ],
         "scale": 0.5
       },
       "components": [
@@ -42,7 +42,7 @@
           "text": "0",
           "fontName": "Fonts/MonsterFriendFore.ttf",
           "fontSize": 12,
-          "color": [ 0.65, 0.6, 0.55, 1 ]
+          "color": [ 0, 0, 0, 1 ]
         }
       ]
     },
@@ -58,7 +58,7 @@
           "text": "PAUSED",
           "fontName": "Fonts/MonsterFriendFore.ttf",
           "fontSize": 48,
-          "color": [ 0.85, 0.8, 0.75, 1 ]
+          "color": [ 0, 0, 0, 1 ]
         }
       ]
     }
